@@ -1,0 +1,900 @@
+
+cat > /mnt/user-data/outputs/darryle-jones.html << 'HTMLEOF'
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Darryle Jones — Fashion Model</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --black:#0d0d0d;
+  --charcoal:#1a1a1a;
+  --dark:#242424;
+  --mid:#3a3a3a;
+  --border:#2e2e2e;
+  --white:#ffffff;
+  --offwhite:#f5f3ef;
+  --muted:#a0a0a0;
+  --accent:#c9a96e;
+  --accent2:#e8c98a;
+  --text:#e8e6e2;
+}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--black);color:var(--text);overflow-x:hidden;}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar{width:4px;}
+::-webkit-scrollbar-track{background:var(--black);}
+::-webkit-scrollbar-thumb{background:var(--accent);}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.4rem 5rem;
+  background:rgba(13,13,13,0.85);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+}
+.nav-logo{
+  font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;
+  color:var(--white);text-decoration:none;letter-spacing:0.02em;
+}
+.nav-logo span{color:var(--accent);}
+.nav-links{display:flex;gap:2.5rem;list-style:none;}
+.nav-links a{font-size:0.72rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.2s;}
+.nav-links a:hover{color:var(--white);}
+.nav-book{
+  background:var(--accent);color:var(--black);
+  padding:0.7rem 1.8rem;font-size:0.7rem;font-weight:600;
+  letter-spacing:0.12em;text-transform:uppercase;
+  border:none;cursor:pointer;transition:all 0.25s;
+  font-family:'DM Sans',sans-serif;
+}
+.nav-book:hover{background:var(--accent2);}
+
+/* ── HERO ── */
+#hero{
+  min-height:100vh;display:grid;grid-template-columns:55% 45%;
+  padding-top:72px;position:relative;
+}
+.hero-left{
+  display:flex;flex-direction:column;justify-content:center;
+  padding:5rem 4rem 5rem 5rem;
+  position:relative;z-index:2;
+}
+.hero-eyebrow{
+  font-size:0.65rem;font-weight:500;letter-spacing:0.35em;
+  text-transform:uppercase;color:var(--accent);
+  margin-bottom:2rem;display:flex;align-items:center;gap:1rem;
+}
+.hero-eyebrow::before{content:'';width:36px;height:1px;background:var(--accent);}
+.hero-name{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(4.5rem,8vw,8.5rem);
+  line-height:0.92;font-weight:900;color:var(--white);
+  letter-spacing:-0.01em;margin-bottom:2rem;
+}
+.hero-name .line2{color:var(--accent);display:block;font-style:italic;}
+.hero-desc{
+  font-size:1rem;font-weight:300;line-height:1.75;
+  color:var(--muted);max-width:400px;margin-bottom:3rem;
+}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;}
+.btn-gold{
+  background:var(--accent);color:var(--black);
+  padding:0.95rem 2.4rem;font-size:0.72rem;font-weight:600;
+  letter-spacing:0.12em;text-transform:uppercase;
+  border:none;cursor:pointer;transition:all 0.25s;
+  font-family:'DM Sans',sans-serif;text-decoration:none;display:inline-block;
+}
+.btn-gold:hover{background:var(--accent2);}
+.btn-ghost{
+  background:transparent;color:var(--white);
+  padding:0.95rem 2.4rem;font-size:0.72rem;font-weight:600;
+  letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;
+  border:1px solid rgba(255,255,255,0.25);transition:all 0.25s;display:inline-block;
+}
+.btn-ghost:hover{border-color:var(--white);}
+
+.hero-right{position:relative;overflow:hidden;background:var(--charcoal);}
+.hero-right img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;}
+.hero-right::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(to right, var(--black) 0%, transparent 30%);
+}
+.hero-tag-badge{
+  position:absolute;bottom:2.5rem;right:2.5rem;z-index:3;
+  background:var(--accent);color:var(--black);
+  padding:0.8rem 1.4rem;
+  font-size:0.62rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;
+}
+
+/* ── TICKER ── */
+.ticker{
+  background:var(--accent);color:var(--black);
+  padding:0.85rem 0;overflow:hidden;white-space:nowrap;
+}
+.ticker-inner{
+  display:inline-block;
+  animation:ticker 20s linear infinite;
+}
+.ticker-inner span{
+  font-size:0.7rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;
+  margin:0 3rem;
+}
+@keyframes ticker{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+/* ── ABOUT ── */
+#about{
+  display:grid;grid-template-columns:1fr 1fr;
+  min-height:85vh;
+}
+.about-imgs{
+  position:relative;overflow:hidden;
+}
+.about-imgs-grid{
+  display:grid;grid-template-rows:65% 35%;height:100%;
+}
+.about-imgs-grid img{
+  width:100%;height:100%;object-fit:cover;object-position:center top;
+}
+.about-imgs-grid .row2{display:grid;grid-template-columns:1fr 1fr;}
+.about-imgs-grid .row2 img{border-top:2px solid var(--black);}
+.about-imgs-grid .row2 img:last-child{border-left:2px solid var(--black);}
+
+.about-content{
+  padding:6rem 5rem;display:flex;flex-direction:column;justify-content:center;
+  background:var(--charcoal);
+}
+.eyebrow{
+  font-size:0.62rem;font-weight:500;letter-spacing:0.3em;
+  text-transform:uppercase;color:var(--accent);
+  margin-bottom:1.2rem;display:flex;align-items:center;gap:0.8rem;
+}
+.eyebrow::before{content:'';width:28px;height:1px;background:var(--accent);}
+.section-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2.2rem,3.5vw,3.2rem);font-weight:700;
+  color:var(--white);line-height:1.1;margin-bottom:2rem;
+}
+.section-title em{color:var(--accent);font-style:italic;}
+.rule{width:50px;height:2px;background:var(--accent);margin-bottom:2rem;}
+.body-text{
+  font-size:0.95rem;font-weight:300;line-height:1.85;
+  color:var(--muted);max-width:460px;margin-bottom:2.5rem;
+}
+.body-text p+p{margin-top:1rem;}
+
+/* ── GALLERY ── */
+#gallery{padding:5rem 0;background:var(--black);}
+.gallery-head{text-align:center;padding:0 2rem 3.5rem;}
+.gallery-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:3px;
+}
+.g-item{position:relative;overflow:hidden;aspect-ratio:2/3;cursor:pointer;}
+.g-item img{width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform 0.7s ease;}
+.g-item:hover img{transform:scale(1.06);}
+.g-over{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(13,13,13,0.85) 0%,transparent 55%);
+  display:flex;align-items:flex-end;padding:1.5rem;
+  opacity:0;transition:opacity 0.3s;
+}
+.g-item:hover .g-over{opacity:1;}
+.g-label{font-size:0.65rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);}
+
+/* ── MEET & GREET SECTION ── */
+#meetgreet{
+  padding:7rem 5rem;
+  background:var(--charcoal);
+  position:relative;overflow:hidden;
+}
+#meetgreet::before{
+  content:'M&G';
+  position:absolute;right:-1rem;top:50%;transform:translateY(-50%);
+  font-family:'Playfair Display',serif;font-size:16vw;
+  color:rgba(201,169,110,0.04);line-height:1;pointer-events:none;font-weight:900;
+}
+.mg-inner{
+  max-width:1100px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center;
+  position:relative;z-index:2;
+}
+.mg-card{
+  background:var(--dark);border:1px solid var(--border);padding:0;overflow:hidden;
+}
+.mg-card-head{
+  background:var(--accent);padding:1.5rem 2rem;
+  font-size:0.65rem;font-weight:700;letter-spacing:0.2em;
+  text-transform:uppercase;color:var(--black);
+}
+.pkg-list{padding:0 2rem;}
+.pkg-item{
+  padding:1.6rem 0;border-bottom:1px solid var(--border);
+  display:flex;gap:1.5rem;align-items:flex-start;cursor:pointer;
+}
+.pkg-item:last-child{border-bottom:none;}
+.pkg-icon{
+  width:44px;height:44px;background:rgba(201,169,110,0.1);
+  border:1px solid rgba(201,169,110,0.2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.2rem;flex-shrink:0;
+}
+.pkg-info{}
+.pkg-name{font-size:0.9rem;font-weight:600;color:var(--white);margin-bottom:0.3rem;}
+.pkg-desc{font-size:0.75rem;color:var(--muted);font-weight:300;line-height:1.5;margin-bottom:0.4rem;}
+.pkg-price{font-size:0.8rem;font-weight:600;color:var(--accent);}
+.book-pkg-btn{
+  display:block;margin:2rem;
+  background:var(--accent);color:var(--black);
+  padding:1rem;text-align:center;
+  font-size:0.72rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;
+  border:none;cursor:pointer;font-family:'DM Sans',sans-serif;
+  transition:all 0.25s;
+}
+.book-pkg-btn:hover{background:var(--accent2);}
+
+/* ── CONTACT ── */
+#contact{
+  display:grid;grid-template-columns:1fr 1fr;min-height:60vh;
+}
+.contact-dark{
+  background:var(--black);padding:5rem;
+  display:flex;flex-direction:column;justify-content:center;
+}
+.contact-dark .eyebrow{margin-bottom:1rem;}
+.mgmt-block{
+  margin-top:2.5rem;padding:2rem;
+  background:var(--charcoal);border:1px solid var(--border);
+  border-left:3px solid var(--accent);
+}
+.mgmt-label{
+  font-size:0.6rem;font-weight:600;letter-spacing:0.2em;
+  text-transform:uppercase;color:var(--accent);margin-bottom:0.6rem;
+}
+.mgmt-email{
+  font-family:'Playfair Display',serif;font-size:1rem;
+  color:var(--white);font-weight:400;
+}
+.mgmt-note{font-size:0.75rem;color:var(--muted);margin-top:0.4rem;font-weight:300;}
+.contact-form-side{
+  background:var(--charcoal);padding:5rem;
+  display:flex;flex-direction:column;justify-content:center;
+}
+.field{margin-bottom:1.3rem;}
+.field label{
+  display:block;font-size:0.62rem;font-weight:600;letter-spacing:0.15em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:0.5rem;
+}
+.field input,.field select,.field textarea{
+  width:100%;padding:0.85rem 1rem;
+  background:var(--dark);border:1px solid var(--border);
+  color:var(--white);font-family:'DM Sans',sans-serif;
+  font-size:0.88rem;font-weight:300;outline:none;
+  transition:border-color 0.2s;
+  appearance:none;
+}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--accent);}
+.field textarea{resize:vertical;min-height:90px;}
+.field select option{background:var(--dark);}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.submit-main{
+  width:100%;background:var(--accent);color:var(--black);
+  padding:1rem;border:none;cursor:pointer;
+  font-family:'DM Sans',sans-serif;font-size:0.72rem;font-weight:700;
+  letter-spacing:0.15em;text-transform:uppercase;transition:all 0.25s;
+  margin-top:0.5rem;
+}
+.submit-main:hover{background:var(--accent2);}
+
+/* ── FOOTER ── */
+footer{
+  background:var(--charcoal);padding:2.5rem 5rem;
+  display:flex;justify-content:space-between;align-items:center;
+  border-top:1px solid var(--border);
+}
+.foot-logo{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--white);}
+.foot-logo span{color:var(--accent);}
+.foot-copy{font-size:0.65rem;color:var(--muted);letter-spacing:0.06em;}
+.foot-socials{display:flex;gap:0.75rem;}
+.foot-socials a{
+  width:34px;height:34px;border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--muted);text-decoration:none;font-size:0.7rem;
+  transition:all 0.2s;font-weight:600;
+}
+.foot-socials a:hover{border-color:var(--accent);color:var(--accent);}
+
+/* ── BOOKING MODAL ── */
+.modal-overlay{
+  position:fixed;inset:0;z-index:999;
+  background:rgba(0,0,0,0.85);backdrop-filter:blur(6px);
+  display:flex;align-items:center;justify-content:center;padding:1.5rem;
+  opacity:0;visibility:hidden;transition:all 0.3s;
+}
+.modal-overlay.open{opacity:1;visibility:visible;}
+.modal{
+  background:var(--charcoal);border:1px solid var(--border);
+  width:100%;max-width:620px;max-height:90vh;overflow-y:auto;
+  position:relative;
+  transform:translateY(20px);transition:transform 0.3s;
+}
+.modal-overlay.open .modal{transform:translateY(0);}
+.modal-head{
+  background:var(--accent);padding:2rem 2.5rem;
+  display:flex;justify-content:space-between;align-items:flex-start;
+}
+.modal-head-text{}
+.modal-title{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:var(--black);}
+.modal-sub{font-size:0.72rem;color:rgba(0,0,0,0.6);font-weight:500;letter-spacing:0.08em;margin-top:0.2rem;}
+.modal-close{
+  background:none;border:none;cursor:pointer;
+  font-size:1.4rem;color:var(--black);line-height:1;
+  padding:0.2rem;transition:opacity 0.2s;
+}
+.modal-close:hover{opacity:0.6;}
+.modal-body{padding:2.5rem;}
+
+/* Step indicators */
+.steps{display:flex;gap:0;margin-bottom:2.5rem;}
+.step{
+  flex:1;padding:0.6rem;text-align:center;
+  font-size:0.6rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--muted);border-bottom:2px solid var(--border);
+  transition:all 0.3s;cursor:default;
+}
+.step.active{color:var(--accent);border-color:var(--accent);}
+.step.done{color:var(--white);border-color:var(--white);}
+
+/* Step panels */
+.step-panel{display:none;}
+.step-panel.active{display:block;}
+
+/* Package cards */
+.pkg-cards{display:grid;gap:0.75rem;margin-bottom:2rem;}
+.pkg-card{
+  border:1.5px solid var(--border);padding:1.3rem 1.5rem;cursor:pointer;
+  transition:all 0.2s;display:grid;grid-template-columns:1fr auto;align-items:center;
+  gap:1rem;
+}
+.pkg-card:hover{border-color:var(--accent);}
+.pkg-card.selected{border-color:var(--accent);background:rgba(201,169,110,0.06);}
+.pkg-card-name{font-size:0.92rem;font-weight:600;color:var(--white);margin-bottom:0.25rem;}
+.pkg-card-desc{font-size:0.75rem;color:var(--muted);font-weight:300;line-height:1.5;}
+.pkg-card-price{font-size:1.1rem;font-weight:700;color:var(--accent);white-space:nowrap;}
+.pkg-check{
+  width:20px;height:20px;border:1.5px solid var(--border);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:0.7rem;color:var(--accent);transition:all 0.2s;flex-shrink:0;
+}
+.pkg-card.selected .pkg-check{background:var(--accent);border-color:var(--accent);color:var(--black);}
+.pkg-card-left{display:flex;gap:1rem;align-items:flex-start;}
+
+/* Modal fields */
+.m-field{margin-bottom:1.2rem;}
+.m-field label{display:block;font-size:0.6rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);margin-bottom:0.45rem;}
+.m-field input,.m-field select{
+  width:100%;padding:0.8rem 1rem;
+  background:var(--dark);border:1px solid var(--border);
+  color:var(--white);font-family:'DM Sans',sans-serif;
+  font-size:0.88rem;outline:none;transition:border-color 0.2s;appearance:none;
+}
+.m-field input:focus,.m-field select:focus{border-color:var(--accent);}
+.m-field select option{background:var(--dark);}
+.m-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+
+/* Modal nav */
+.modal-nav{display:flex;justify-content:space-between;align-items:center;margin-top:2rem;}
+.btn-prev{
+  background:none;border:1px solid var(--border);color:var(--muted);
+  padding:0.75rem 1.5rem;font-size:0.7rem;font-weight:600;
+  letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;
+  font-family:'DM Sans',sans-serif;transition:all 0.2s;
+}
+.btn-prev:hover{border-color:var(--white);color:var(--white);}
+.btn-next{
+  background:var(--accent);color:var(--black);
+  padding:0.75rem 2rem;font-size:0.7rem;font-weight:700;
+  letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;
+  border:none;font-family:'DM Sans',sans-serif;transition:all 0.25s;
+}
+.btn-next:hover{background:var(--accent2);}
+
+/* Success */
+.success-screen{
+  text-align:center;padding:3rem 2rem;display:none;
+}
+.success-icon{font-size:3rem;margin-bottom:1.5rem;}
+.success-title{font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--white);margin-bottom:0.75rem;}
+.success-msg{font-size:0.9rem;color:var(--muted);line-height:1.7;max-width:340px;margin:0 auto;}
+
+/* Confirm summary */
+.confirm-box{background:var(--dark);border:1px solid var(--border);padding:1.5rem;margin-bottom:1.5rem;}
+.confirm-row{display:flex;justify-content:space-between;padding:0.6rem 0;border-bottom:1px solid var(--border);}
+.confirm-row:last-child{border-bottom:none;}
+.confirm-key{font-size:0.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;}
+.confirm-val{font-size:0.85rem;color:var(--white);font-weight:500;text-align:right;}
+.privacy-line{font-size:0.7rem;color:var(--muted);display:flex;gap:0.5rem;align-items:flex-start;line-height:1.5;margin-top:1rem;}
+
+/* Reveal anim */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease;}
+.reveal.in{opacity:1;transform:none;}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  nav{padding:1rem 1.5rem;}
+  .nav-links{display:none;}
+  #hero{grid-template-columns:1fr;min-height:auto;}
+  .hero-left{padding:5rem 1.8rem 3rem;}
+  .hero-right{height:70vw;}
+  .hero-right::after{background:linear-gradient(to bottom,var(--black) 0%,transparent 30%);}
+  #about{grid-template-columns:1fr;}
+  .about-imgs{height:55vw;}
+  .about-imgs-grid{grid-template-rows:1fr;}
+  .about-imgs-grid .row2{display:none;}
+  .about-content{padding:3rem 1.8rem;}
+  .gallery-grid{grid-template-columns:repeat(2,1fr);}
+  #meetgreet{padding:4rem 1.8rem;}
+  .mg-inner{grid-template-columns:1fr;gap:3rem;}
+  #contact{grid-template-columns:1fr;}
+  .contact-dark{padding:3rem 1.8rem;}
+  .contact-form-side{padding:3rem 1.8rem;}
+  .field-row{grid-template-columns:1fr;}
+  footer{flex-direction:column;gap:1.5rem;text-align:center;padding:2rem 1.5rem;}
+  .modal-body{padding:1.8rem;}
+  .m-row{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Darryle<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#gallery">Portfolio</a></li>
+    <li><a href="#meetgreet">Events</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="nav-book" onclick="openModal()">Book Meet &amp; Greet</button>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Fashion · Style · Presence</p>
+    <h1 class="hero-name">
+      Darryle
+      <span class="line2">Jones</span>
+    </h1>
+    <p class="hero-desc">Fashion model, style authority, and cultural presence — redefining elegance one look at a time.</p>
+    <div class="hero-btns">
+      <button class="btn-gold" onclick="openModal()">Book Meet &amp; Greet</button>
+      <a href="#about" class="btn-ghost">Learn More</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="IMG_1833.jpeg" alt="Darryle Jones" />
+    <div class="hero-tag-badge">Alexandria, VA</div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <span>Fashion Model</span><span>★</span>
+    <span>Style Icon</span><span>★</span>
+    <span>Brand Ambassador</span><span>★</span>
+    <span>Alexandria, VA</span><span>★</span>
+    <span>Meet &amp; Greet Available</span><span>★</span>
+    <span>Fashion Model</span><span>★</span>
+    <span>Style Icon</span><span>★</span>
+    <span>Brand Ambassador</span><span>★</span>
+    <span>Alexandria, VA</span><span>★</span>
+    <span>Meet &amp; Greet Available</span><span>★</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-imgs">
+    <div class="about-imgs-grid">
+      <img src="IMG_1835.jpeg" alt="Darryle Jones Blue Suit" />
+      <div class="row2">
+        <img src="IMG_1834.jpeg" alt="Darryle Jones Active" />
+        <img src="IMG_1833.jpeg" alt="Darryle Jones Green Suit" style="object-position:center;" />
+      </div>
+    </div>
+  </div>
+  <div class="about-content">
+    <p class="eyebrow reveal">The Man Behind the Style</p>
+    <h2 class="section-title reveal">More Than<br>a <em>Model</em></h2>
+    <div class="rule reveal"></div>
+    <div class="body-text reveal">
+      <p>Darryle Jones is not just a face in front of the camera — he is a living, breathing statement. With a signature silver beard, impeccable tailoring, and an undeniable presence, Darryle has redefined what it means to be a style icon in modern fashion.</p>
+      <p>Based in Alexandria, VA, Darryle brings decades of refined taste, discipline, and authentic energy to every shoot, runway, and collaboration. Bold, intentional, and unmistakably his own.</p>
+    </div>
+    <button class="btn-gold reveal" onclick="openModal()">Book a Meet &amp; Greet</button>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="gallery-head">
+    <p class="eyebrow reveal" style="justify-content:center;">Portfolio</p>
+    <h2 class="section-title reveal" style="color:var(--white);">Signature <em>Looks</em></h2>
+  </div>
+  <div class="gallery-grid">
+    <div class="g-item reveal">
+      <img src="IMG_1833.jpeg" alt="Green Suit Editorial" />
+      <div class="g-over"><span class="g-label">Editorial — Green</span></div>
+    </div>
+    <div class="g-item reveal">
+      <img src="IMG_1835.jpeg" alt="Blue Pinstripe" />
+      <div class="g-over"><span class="g-label">Blue Pinstripe</span></div>
+    </div>
+    <div class="g-item reveal">
+      <img src="IMG_1834.jpeg" alt="Lifestyle" />
+      <div class="g-over"><span class="g-label">Lifestyle</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- MEET & GREET -->
+<section id="meetgreet">
+  <div class="mg-inner">
+    <div>
+      <p class="eyebrow reveal">Exclusive Events</p>
+      <h2 class="section-title reveal">Meet &amp; <em>Greet</em></h2>
+      <div class="rule reveal"></div>
+      <div class="body-text reveal">
+        <p>Get up close with Darryle at exclusive meet & greet events. Whether it's a fan experience, private styling session, or brand event — this is your chance to connect with the man behind the style.</p>
+        <p>Packages are limited. Book early to secure your spot.</p>
+      </div>
+      <button class="btn-gold reveal" onclick="openModal()">Reserve Your Spot</button>
+    </div>
+    <div class="reveal">
+      <div class="mg-card">
+        <div class="mg-card-head">Available Packages</div>
+        <div class="pkg-list">
+          <div class="pkg-item" onclick="openModal('bronze')">
+            <div class="pkg-icon">📸</div>
+            <div class="pkg-info">
+              <div class="pkg-name">Bronze — Fan Experience</div>
+              <div class="pkg-desc">Meet Darryle, quick photo together, autographed card</div>
+              <div class="pkg-price">$75</div>
+            </div>
+          </div>
+          <div class="pkg-item" onclick="openModal('silver')">
+            <div class="pkg-icon">🤝</div>
+            <div class="pkg-info">
+              <div class="pkg-name">Silver — Style Session</div>
+              <div class="pkg-desc">30-min style talk, photo set, signed merch, Q&A</div>
+              <div class="pkg-price">$150</div>
+            </div>
+          </div>
+          <div class="pkg-item" onclick="openModal('gold')">
+            <div class="pkg-icon">👑</div>
+            <div class="pkg-info">
+              <div class="pkg-name">Gold — VIP Access</div>
+              <div class="pkg-desc">Full hour, personal styling consult, photo shoot, dinner seat, premium merch</div>
+              <div class="pkg-price">$300</div>
+            </div>
+          </div>
+        </div>
+        <button class="book-pkg-btn" onclick="openModal()">Book Now →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-dark">
+    <p class="eyebrow">Management</p>
+    <h2 class="section-title">Get In <em>Touch</em></h2>
+    <div class="rule"></div>
+    <div class="body-text">
+      <p>For bookings, brand collaborations, press inquiries, or management contact — reach out directly below or use the form. All inquiries are kept private.</p>
+    </div>
+    <div class="mgmt-block">
+      <div class="mgmt-label">Management Email</div>
+      <div class="mgmt-email">darrylejmgmt@gmail.com</div>
+      <div class="mgmt-note">Response within 24–48 business hours</div>
+    </div>
+  </div>
+  <div class="contact-form-side">
+    <p class="eyebrow">Send a Message</p>
+    <h2 class="section-title" style="font-size:2rem;margin-bottom:1.5rem;">Direct <em>Inquiry</em></h2>
+    <div class="field-row">
+      <div class="field"><label>First Name</label><input type="text" placeholder="Marcus"/></div>
+      <div class="field"><label>Last Name</label><input type="text" placeholder="Williams"/></div>
+    </div>
+    <div class="field"><label>Email</label><input type="email" placeholder="your@email.com"/></div>
+    <div class="field"><label>Phone (Optional)</label><input type="tel" placeholder="+1 (555) 000-0000"/></div>
+    <div class="field">
+      <label>Inquiry Type</label>
+      <select>
+        <option value="">Select reason</option>
+        <option>Meet &amp; Greet Request</option>
+        <option>Brand Collaboration</option>
+        <option>Photoshoot / Runway</option>
+        <option>Style Consultation</option>
+        <option>Media / Press</option>
+        <option>General Inquiry</option>
+      </select>
+    </div>
+    <div class="field"><label>Message</label><textarea placeholder="Tell Darryle's team what you have in mind..." style="background:var(--dark);border:1px solid var(--border);width:100%;padding:0.85rem 1rem;color:var(--white);font-family:'DM Sans',sans-serif;font-size:0.88rem;outline:none;resize:vertical;min-height:90px;"></textarea></div>
+    <button class="submit-main">Send Message</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-logo">Darryle<span>Jones</span></div>
+  <p class="foot-copy">© 2025 Darryle Jones. All rights reserved.</p>
+  <div class="foot-socials">
+    <a href="#" title="Instagram">IG</a>
+    <a href="#" title="Facebook">FB</a>
+    <a href="#" title="TikTok">TT</a>
+  </div>
+</footer>
+
+<!-- ── BOOKING MODAL ── -->
+<div class="modal-overlay" id="bookingModal" onclick="handleOverlayClick(event)">
+  <div class="modal" id="modalBox">
+
+    <div id="modalFormWrap">
+      <!-- HEAD -->
+      <div class="modal-head">
+        <div class="modal-head-text">
+          <div class="modal-title">Book Your Experience</div>
+          <div class="modal-sub">Darryle Jones — Meet &amp; Greet</div>
+        </div>
+        <button class="modal-close" onclick="closeModal()">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <!-- STEPS -->
+        <div class="steps">
+          <div class="step active" id="step-ind-1">01 · Package</div>
+          <div class="step" id="step-ind-2">02 · Details</div>
+          <div class="step" id="step-ind-3">03 · Confirm</div>
+        </div>
+
+        <!-- STEP 1: Package -->
+        <div class="step-panel active" id="panel-1">
+          <p style="font-size:0.8rem;color:var(--muted);margin-bottom:1.5rem;">Choose your meet &amp; greet package below.</p>
+          <div class="pkg-cards">
+            <div class="pkg-card" id="pkg-bronze" onclick="selectPkg('bronze')">
+              <div class="pkg-card-left">
+                <div style="font-size:1.5rem;flex-shrink:0;">📸</div>
+                <div>
+                  <div class="pkg-card-name">Bronze — Fan Experience</div>
+                  <div class="pkg-card-desc">Meet Darryle, quick photo together, autographed card included</div>
+                </div>
+              </div>
+              <div style="display:flex;flex-direction:column;align-items:flex-end;gap:0.5rem;">
+                <div class="pkg-card-price">$75</div>
+                <div class="pkg-check" id="chk-bronze">✓</div>
+              </div>
+            </div>
+            <div class="pkg-card" id="pkg-silver" onclick="selectPkg('silver')">
+              <div class="pkg-card-left">
+                <div style="font-size:1.5rem;flex-shrink:0;">🤝</div>
+                <div>
+                  <div class="pkg-card-name">Silver — Style Session</div>
+                  <div class="pkg-card-desc">30-min style talk, photo set, signed merch, personal Q&amp;A with Darryle</div>
+                </div>
+              </div>
+              <div style="display:flex;flex-direction:column;align-items:flex-end;gap:0.5rem;">
+                <div class="pkg-card-price">$150</div>
+                <div class="pkg-check" id="chk-silver">✓</div>
+              </div>
+            </div>
+            <div class="pkg-card" id="pkg-gold" onclick="selectPkg('gold')">
+              <div class="pkg-card-left">
+                <div style="font-size:1.5rem;flex-shrink:0;">👑</div>
+                <div>
+                  <div class="pkg-card-name">Gold — VIP Access</div>
+                  <div class="pkg-card-desc">Full hour, styling consult, photo shoot, dinner seat, premium signed merch</div>
+                </div>
+              </div>
+              <div style="display:flex;flex-direction:column;align-items:flex-end;gap:0.5rem;">
+                <div class="pkg-card-price">$300</div>
+                <div class="pkg-check" id="chk-gold">✓</div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-nav">
+            <span></span>
+            <button class="btn-next" onclick="goStep(2)">Continue →</button>
+          </div>
+        </div>
+
+        <!-- STEP 2: Details -->
+        <div class="step-panel" id="panel-2">
+          <p style="font-size:0.8rem;color:var(--muted);margin-bottom:1.5rem;">Fill in your details and pick your preferred date &amp; time.</p>
+          <div class="m-row">
+            <div class="m-field"><label>First Name *</label><input type="text" id="f-fname" placeholder="Your first name"/></div>
+            <div class="m-field"><label>Last Name *</label><input type="text" id="f-lname" placeholder="Your last name"/></div>
+          </div>
+          <div class="m-field"><label>Email Address *</label><input type="email" id="f-email" placeholder="your@email.com"/></div>
+          <div class="m-field"><label>Phone Number *</label><input type="tel" id="f-phone" placeholder="+1 (555) 000-0000"/></div>
+          <div class="m-row">
+            <div class="m-field">
+              <label>Preferred Date *</label>
+              <input type="date" id="f-date" min=""/>
+            </div>
+            <div class="m-field">
+              <label>Preferred Time *</label>
+              <select id="f-time">
+                <option value="">Select a time slot</option>
+                <option>10:00 AM</option>
+                <option>11:00 AM</option>
+                <option>12:00 PM</option>
+                <option>1:00 PM</option>
+                <option>2:00 PM</option>
+                <option>3:00 PM</option>
+                <option>4:00 PM</option>
+                <option>5:00 PM</option>
+              </select>
+            </div>
+          </div>
+          <div class="m-field">
+            <label>Special Requests (Optional)</label>
+            <input type="text" id="f-note" placeholder="Anything you'd like Darryle's team to know"/>
+          </div>
+          <div class="modal-nav">
+            <button class="btn-prev" onclick="goStep(1)">← Back</button>
+            <button class="btn-next" onclick="goStep(3)">Review Booking →</button>
+          </div>
+        </div>
+
+        <!-- STEP 3: Confirm -->
+        <div class="step-panel" id="panel-3">
+          <p style="font-size:0.8rem;color:var(--muted);margin-bottom:1.5rem;">Review your booking before submitting.</p>
+          <div class="confirm-box" id="confirmSummary"></div>
+          <div class="privacy-line">🔒 Your information is private and will only be seen by Darryle's management team. We never share your details.</div>
+          <div class="modal-nav" style="margin-top:1.5rem;">
+            <button class="btn-prev" onclick="goStep(2)">← Edit</button>
+            <button class="btn-next" onclick="submitBooking()">Confirm Booking ✓</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SUCCESS -->
+    <div class="success-screen" id="successScreen">
+      <div class="success-icon">🎉</div>
+      <div class="success-title">You're Booked!</div>
+      <p class="success-msg">Thanks! Darryle's team will reach out to confirm your spot and send payment details. Check your email within 24 hours.</p>
+      <button class="btn-gold" style="margin-top:2rem;" onclick="closeModal()">Close</button>
+    </div>
+
+  </div>
+</div>
+
+<script>
+// ── State ──
+let selectedPkg = null;
+let currentStep = 1;
+const pkgData = {
+  bronze: { name: 'Bronze — Fan Experience', price: '$75' },
+  silver: { name: 'Silver — Style Session', price: '$150' },
+  gold:   { name: 'Gold — VIP Access',      price: '$300' }
+};
+
+// ── Modal ──
+function openModal(pkg) {
+  document.getElementById('bookingModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  // Reset
+  document.getElementById('modalFormWrap').style.display = 'block';
+  document.getElementById('successScreen').style.display = 'none';
+  goStep(1);
+  if (pkg) selectPkg(pkg);
+  // Set min date to today
+  const today = new Date().toISOString().split('T')[0];
+  document.getElementById('f-date').min = today;
+}
+function closeModal() {
+  document.getElementById('bookingModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function handleOverlayClick(e) {
+  if (e.target === document.getElementById('bookingModal')) closeModal();
+}
+
+// ── Package select ──
+function selectPkg(id) {
+  selectedPkg = id;
+  ['bronze','silver','gold'].forEach(p => {
+    document.getElementById('pkg-' + p).classList.remove('selected');
+    document.getElementById('chk-' + p).textContent = '✓';
+  });
+  document.getElementById('pkg-' + id).classList.add('selected');
+  document.getElementById('chk-' + id).textContent = '✓';
+}
+
+// ── Steps ──
+function goStep(n) {
+  if (n === 2) {
+    if (!selectedPkg) { alert('Please select a package first.'); return; }
+  }
+  if (n === 3) {
+    const fname = document.getElementById('f-fname').value.trim();
+    const lname = document.getElementById('f-lname').value.trim();
+    const email = document.getElementById('f-email').value.trim();
+    const phone = document.getElementById('f-phone').value.trim();
+    const date  = document.getElementById('f-date').value;
+    const time  = document.getElementById('f-time').value;
+    if (!fname || !lname || !email || !phone || !date || !time) {
+      alert('Please fill in all required fields.'); return;
+    }
+    const emailRx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRx.test(email)) { alert('Please enter a valid email address.'); return; }
+    buildSummary(fname, lname, email, phone, date, time);
+  }
+  currentStep = n;
+  [1,2,3].forEach(i => {
+    document.getElementById('panel-' + i).classList.remove('active');
+    const ind = document.getElementById('step-ind-' + i);
+    ind.classList.remove('active','done');
+    if (i < n) ind.classList.add('done');
+    else if (i === n) ind.classList.add('active');
+  });
+  document.getElementById('panel-' + n).classList.add('active');
+  document.getElementById('modalBox').scrollTop = 0;
+}
+
+function buildSummary(fname, lname, email, phone, date, time) {
+  const pkg = pkgData[selectedPkg];
+  const d = new Date(date + 'T12:00:00');
+  const dateStr = d.toLocaleDateString('en-US', { weekday:'long', year:'numeric', month:'long', day:'numeric' });
+  document.getElementById('confirmSummary').innerHTML = `
+    <div class="confirm-row"><span class="confirm-key">Package</span><span class="confirm-val">${pkg.name}</span></div>
+    <div class="confirm-row"><span class="confirm-key">Price</span><span class="confirm-val">${pkg.price}</span></div>
+    <div class="confirm-row"><span class="confirm-key">Name</span><span class="confirm-val">${fname} ${lname}</span></div>
+    <div class="confirm-row"><span class="confirm-key">Email</span><span class="confirm-val">${email}</span></div>
+    <div class="confirm-row"><span class="confirm-key">Phone</span><span class="confirm-val">${phone}</span></div>
+    <div class="confirm-row"><span class="confirm-key">Date</span><span class="confirm-val">${dateStr}</span></div>
+    <div class="confirm-row"><span class="confirm-key">Time</span><span class="confirm-val">${time}</span></div>
+  `;
+}
+
+function submitBooking() {
+  document.getElementById('modalFormWrap').style.display = 'none';
+  document.getElementById('successScreen').style.display = 'block';
+  // Reset form for next use
+  selectedPkg = null;
+  ['f-fname','f-lname','f-email','f-phone','f-date','f-note'].forEach(id => document.getElementById(id).value = '');
+  document.getElementById('f-time').value = '';
+}
+
+// ── Scroll reveal ──
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// ── Smooth scroll ──
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) { e.preventDefault(); t.scrollIntoView({ behavior:'smooth' }); }
+  });
+});
+
+// ── ESC close ──
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+</script>
+</body>
+</html>
+HTMLEOF
