@@ -1,327 +1,500 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Darryle Jones — Fashion Model</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Darryle Jones — Fashion Model</title>
+
+  <!-- Google Fonts -->
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+
+  <!-- Stylesheet -->
+
+  <link rel="stylesheet" href="css/style.css"/>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <a href="#" class="nav-logo">Darryle<span>.</span></a>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#gallery">Portfolio</a></li>
-    <li><a href="#meetgreet">Events</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-  <button class="nav-book" onclick="openModal()">Book Meet &amp; Greet</button>
-</nav>
+  <!-- ══════════════════════════
+       NAVIGATION
+  ══════════════════════════ -->
 
-<!-- HERO -->
-<section id="hero">
-  <div class="hero-left">
-    <p class="hero-eye">Fashion · Style · Presence</p>
-    <h1 class="hero-name">Darryle<span>Jones</span></h1>
-    <p class="hero-desc">Fashion model, style authority, and cultural presence — redefining elegance one look at a time.</p>
-    <div class="hero-btns">
-      <button class="btn-gold" onclick="openModal()">Book Meet &amp; Greet</button>
-      <a href="#about" class="btn-ghost">Learn More</a>
-    </div>
-  </div>
-  <div class="hero-right">
-    <img src="IMG_1833.jpeg" alt="Darryle Jones"/>
-    <div class="hero-badge">Alexandria, VA</div>
-  </div>
-</section>
+  <nav>
+    <a href="#" class="nav-logo">Darryle<span>.</span></a>
 
-<!-- TICKER -->
-<div class="ticker">
-  <div class="ticker-inner">
-    <span>Fashion Model</span><span>★</span><span>Style Icon</span><span>★</span><span>Brand Ambassador</span><span>★</span><span>Alexandria, VA</span><span>★</span><span>Meet &amp; Greet Available</span><span>★</span>
-    <span>Fashion Model</span><span>★</span><span>Style Icon</span><span>★</span><span>Brand Ambassador</span><span>★</span><span>Alexandria, VA</span><span>★</span><span>Meet &amp; Greet Available</span><span>★</span>
+```
+<ul class="nav-links">
+  <li><a href="#about">About</a></li>
+  <li><a href="#gallery">Portfolio</a></li>
+  <li><a href="#meetgreet">Events</a></li>
+  <li><a href="#contact">Contact</a></li>
+</ul>
+
+<button class="nav-book" onclick="openModal()">Book Meet &amp; Greet</button>
+```
+
+  </nav>
+
+  <!-- ══════════════════════════
+       HERO
+  ══════════════════════════ -->
+
+  <section id="hero">
+    <div class="hero-left">
+      <p class="hero-eye">Fashion · Style · Presence</p>
+
+```
+  <h1 class="hero-name">
+    Darryle
+    <span>Jones</span>
+  </h1>
+
+  <p class="hero-desc">
+    Fashion model, style authority, and cultural presence — redefining elegance one look at a time.
+  </p>
+
+  <div class="hero-btns">
+    <button class="btn-gold" onclick="openModal()">Book Meet &amp; Greet</button>
+    <a href="#about" class="btn-ghost">Learn More</a>
   </div>
 </div>
 
-<!-- ABOUT -->
-<section id="about">
-  <div class="about-imgs">
-    <img src="IMG_1835.jpeg" alt="Darryle Jones"/>
+<div class="hero-right">
+  <img src="IMG_1833.jpeg" alt="Darryle Jones — Green Suit"/>
+  <div class="hero-badge">Alexandria, VA</div>
+</div>
+```
+
+  </section>
+
+  <!-- ══════════════════════════
+       TICKER STRIP
+  ══════════════════════════ -->
+
+  <div class="ticker">
+    <div class="ticker-inner">
+      <span>Fashion Model</span><span>★</span>
+      <span>Style Icon</span><span>★</span>
+      <span>Brand Ambassador</span><span>★</span>
+      <span>Alexandria, VA</span><span>★</span>
+      <span>Meet &amp; Greet Available</span><span>★</span>
+      <!-- Duplicated for seamless loop -->
+      <span>Fashion Model</span><span>★</span>
+      <span>Style Icon</span><span>★</span>
+      <span>Brand Ambassador</span><span>★</span>
+      <span>Alexandria, VA</span><span>★</span>
+      <span>Meet &amp; Greet Available</span><span>★</span>
+    </div>
   </div>
-  <div class="about-content">
-    <p class="eyebrow">The Man Behind the Style</p>
-    <h2 class="sec-title">More Than<br>a <em>Model</em></h2>
+
+  <!-- ══════════════════════════
+       ABOUT
+  ══════════════════════════ -->
+
+  <section id="about">
+    <div class="about-imgs">
+      <img src="IMG_1835.jpeg" alt="Darryle Jones — Blue Pinstripe Suit"/>
+    </div>
+
+```
+<div class="about-content">
+  <p class="eyebrow">The Man Behind the Style</p>
+  <h2 class="sec-title">More Than<br>a <em>Model</em></h2>
+  <div class="rule"></div>
+
+  <div class="body-text">
+    <p>
+      Darryle Jones is not just a face in front of the camera — he is a living, breathing statement.
+      With a signature silver beard, impeccable tailoring, and an undeniable presence, Darryle has
+      redefined what it means to be a style icon in modern fashion.
+    </p>
+    <p>
+      Based in Alexandria, VA, Darryle brings decades of refined taste, discipline, and authentic energy
+      to every shoot, runway, and collaboration. Bold, intentional, and unmistakably his own.
+    </p>
+  </div>
+
+  <button class="btn-gold" onclick="openModal()">Book a Meet &amp; Greet</button>
+</div>
+```
+
+  </section>
+
+  <!-- ══════════════════════════
+       GALLERY
+  ══════════════════════════ -->
+
+  <section id="gallery">
+    <div class="gal-head">
+      <p class="eyebrow" style="justify-content:center">Portfolio</p>
+      <h2 class="sec-title">Signature <em>Looks</em></h2>
+    </div>
+
+```
+<div class="gal-grid">
+  <div class="g-item">
+    <img src="IMG_1833.jpeg" alt="Green Suit Editorial"/>
+    <div class="g-over"><span class="g-label">Editorial — Green</span></div>
+  </div>
+  <div class="g-item">
+    <img src="IMG_1835.jpeg" alt="Blue Pinstripe"/>
+    <div class="g-over"><span class="g-label">Blue Pinstripe</span></div>
+  </div>
+  <div class="g-item">
+    <img src="IMG_1834.jpeg" alt="Lifestyle"/>
+    <div class="g-over"><span class="g-label">Lifestyle</span></div>
+  </div>
+</div>
+```
+
+  </section>
+
+  <!-- ══════════════════════════
+       MEET & GREET
+  ══════════════════════════ -->
+
+  <section id="meetgreet">
+    <div class="mg-inner">
+
+```
+  <!-- Left: Copy -->
+  <div>
+    <p class="eyebrow">Exclusive Events</p>
+    <h2 class="sec-title">Meet &amp; <em>Greet</em></h2>
     <div class="rule"></div>
     <div class="body-text">
-      <p>Darryle Jones is not just a face in front of the camera — he is a living, breathing statement. With a signature silver beard, impeccable tailoring, and an undeniable presence, Darryle has redefined what it means to be a style icon in modern fashion.</p>
-      <p>Based in Alexandria, VA, Darryle brings decades of refined taste, discipline, and authentic energy to every shoot, runway, and collaboration. Bold, intentional, and unmistakably his own.</p>
+      <p>
+        Get up close with Darryle at exclusive meet &amp; greet events. Fan experience,
+        private styling session, or brand event — this is your chance to connect with
+        the man behind the style.
+      </p>
+      <p>Packages are limited. Book early to secure your spot.</p>
     </div>
-    <button class="btn-gold" onclick="openModal()">Book a Meet &amp; Greet</button>
+    <button class="btn-gold" onclick="openModal()">Reserve Your Spot</button>
   </div>
-</section>
 
-<!-- GALLERY -->
-<section id="gallery">
-  <div class="gal-head">
-    <p class="eyebrow" style="justify-content:center">Portfolio</p>
-    <h2 class="sec-title" style="color:#fff">Signature <em>Looks</em></h2>
-  </div>
-      <div class="gal-grid">
-      <div class="g-item">
-        <img src="IMG_1833.jpeg" alt="Green Suit">
-        <div class="g-over"><span class="g-label">View</span></div>
-      </div>
-      <div class="g-item">
-        <img src="IMG_1834.jpeg" alt="Lifestyle">
-        <div class="g-over"><span class="g-label">View</span></div>
-      </div>
-      <div class="g-item">
-        <img src="IMG_1835.jpeg" alt="Blue Pinstripe">
-        <div class="g-over"><span class="g-label">View</span></div>
-      </div>
-      <div class="g-item">
-        <img src="IMG_1926.jpeg" alt="Fashion Look">
-        <div class="g-over"><span class="g-label">View</span></div>
-      </div>
-      <div class="g-item">
-        <img src="IMG_1927.jpeg" alt="Fashion Look">
-        <div class="g-over"><span class="g-label">View</span></div>
-      </div>
-      <div class="g-item">
-        <img src="IMG_1928.jpeg" alt="Fashion Look">
-        <div class="g-over"><span class="g-label">View</span></div>
-      </div>
-      <div class="g-item">
-        <img src="IMG_1929.jpeg" alt="Fashion Look">
-        <div class="g-over"><span class="g-label">View</span></div>
-      </div>
-    </div>
+  <!-- Right: Package card -->
+  <div>
+    <div class="mg-card">
+      <div class="mg-head">Available Packages</div>
 
-</section>
-
-<!-- MEET & GREET -->
-<section id="meetgreet">
-  <div class="mg-inner">
-    <div>
-      <p class="eyebrow">Exclusive Events</p>
-      <h2 class="sec-title">Meet &amp; <em>Greet</em></h2>
-      <div class="rule"></div>
-      <div class="body-text">
-        <p>Get up close with Darryle at exclusive meet &amp; greet events. Fan experience, private styling session, or brand event — this is your chance to connect with the man behind the style.</p>
-        <p>Packages are limited. Book early to secure your spot.</p>
-      </div>
-      <button class="btn-gold" onclick="openModal()">Reserve Your Spot</button>
-    </div>
-    <div>
-      <div class="mg-card">
-        <div class="mg-head">Available Packages</div>
-        <div class="pkg" onclick="openModal('bronze')">
-          <div class="pkg-ico">📸</div>
-          <div>
-            <div class="pkg-name">Bronze — Fan Experience</div>
-            <div class="pkg-desc">Meet Darryle, quick photo, autographed card</div>
-            <div class="pkg-price">$75</div>
-          </div>
-        </div>
-        <div class="pkg" onclick="openModal('silver')">
-          <div class="pkg-ico">🤝</div>
-          <div>
-            <div class="pkg-name">Silver — Style Session</div>
-            <div class="pkg-desc">30-min style talk, photo set, signed merch, Q&amp;A</div>
-            <div class="pkg-price">$150</div>
-          </div>
-        </div>
-        <div class="pkg" onclick="openModal('gold')">
-          <div class="pkg-ico">👑</div>
-          <div>
-            <div class="pkg-name">Gold — VIP Access</div>
-            <div class="pkg-desc">Full hour, styling consult, photo shoot, dinner seat, premium merch</div>
-            <div class="pkg-price">$300</div>
-          </div>
-        </div>
-        <button class="book-now-btn" onclick="openModal()">Book Now →</button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-  <div class="contact-left">
-    <p class="eyebrow">Management</p>
-    <h2 class="sec-title">Get In <em>Touch</em></h2>
-    <div class="rule"></div>
-    <div class="body-text">
-      <p>For bookings, brand collaborations, press inquiries, or management contact — reach out directly or use the form.</p>
-    </div>
-    <div class="mgmt-block">
-      <div class="mgmt-label">Management Email</div>
-      <div class="mgmt-email">darrylejonesmgteam@gmail.com</div>
-      <div class="mgmt-note">Response within 24–48 business hours</div>
-    </div>
-    <div class="mgmt-block" style="margin-top:1rem;border-left-color:#555">
-      <div class="mgmt-label">Personal</div>
-      <div class="mgmt-email" style="font-size:0.9rem">darrylejonesfm@gmail.com</div>
-    </div>
-  </div>
-  <div class="contact-right">
-    <p class="eyebrow">Send a Message</p>
-    <h2 class="sec-title" style="font-size:2rem;margin-bottom:1.5rem">Direct <em>Inquiry</em></h2>
-    <form id="contactForm" action="https://formspree.io/f/mjgdgrnl" method="POST">
-      <div class="field-row">
-        <div class="field"><label>First Name</label><input type="text" name="first_name" placeholder="Marcus" required/></div>
-        <div class="field"><label>Last Name</label><input type="text" name="last_name" placeholder="Williams" required/></div>
-      </div>
-      <div class="field"><label>Email</label><input type="email" name="email" placeholder="your@email.com" required/></div>
-      <div class="field"><label>Phone (Optional)</label><input type="tel" name="phone" placeholder="+1 (555) 000-0000"/></div>
-      <div class="field">
-        <label>Inquiry Type</label>
-        <select name="inquiry_type">
-          <option value="">Select reason</option>
-          <option>Meet &amp; Greet Request</option>
-          <option>Brand Collaboration</option>
-          <option>Photoshoot / Runway</option>
-          <option>Style Consultation</option>
-          <option>Media / Press</option>
-          <option>General Inquiry</option>
-        </select>
-      </div>
-      <div class="field"><label>Message</label><textarea name="message" placeholder="Tell Darryle's team what you have in mind..." style="background:var(--dark);border:1px solid var(--border);width:100%;padding:0.85rem 1rem;color:#fff;font-family:'DM Sans',sans-serif;font-size:0.88rem;outline:none;resize:vertical;min-height:90px" required></textarea></div>
-      <button type="submit" class="submit-btn">Send Message</button>
-    </form>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="foot-logo">Darryle<span>Jones</span></div>
-  <p class="foot-copy">© 2025 Darryle Jones. All rights reserved.</p>
-  <div class="foot-socials">
-    <a href="#" title="Instagram">IG</a>
-    <a href="#" title="Facebook">FB</a>
-    <a href="#" title="TikTok">TT</a>
-  </div>
-</footer>
-
-<!-- BOOKING MODAL -->
-<div class="overlay" id="overlay" onclick="handleBg(event)">
-  <div class="modal" id="modalBox">
-
-    <div id="formWrap">
-      <div class="modal-head">
+      <div class="pkg" onclick="openModal('bronze')">
+        <div class="pkg-ico">📸</div>
         <div>
-          <div class="modal-title">Book Your Experience</div>
-          <div class="modal-sub">Darryle Jones — Meet &amp; Greet</div>
-        </div>
-        <button class="modal-close" onclick="closeModal()">✕</button>
-      </div>
-      <div class="modal-body">
-        <div class="steps">
-          <div class="step active" id="si1">01 · Package</div>
-          <div class="step" id="si2">02 · Details</div>
-          <div class="step" id="si3">03 · Confirm</div>
-        </div>
-
-        <!-- STEP 1 -->
-        <div class="panel active" id="p1">
-          <p style="font-size:0.8rem;color:var(--muted);margin-bottom:1.5rem">Choose your meet &amp; greet package.</p>
-          <div class="pkg-cards">
-            <div class="pkg-card" id="pc-bronze" onclick="selPkg('bronze')">
-              <div class="pkg-card-left">
-                <div style="font-size:1.4rem">📸</div>
-                <div>
-                  <div class="pkg-card-name">Bronze — Fan Experience</div>
-                  <div class="pkg-card-desc">Meet Darryle, quick photo, autographed card</div>
-                </div>
-              </div>
-              <div style="display:flex;flex-direction:column;align-items:flex-end;gap:0.5rem">
-                <div class="pkg-card-price">$75</div>
-                <div class="chk" id="ck-bronze">✓</div>
-              </div>
-            </div>
-            <div class="pkg-card" id="pc-silver" onclick="selPkg('silver')">
-              <div class="pkg-card-left">
-                <div style="font-size:1.4rem">🤝</div>
-                <div>
-                  <div class="pkg-card-name">Silver — Style Session</div>
-                  <div class="pkg-card-desc">30-min style talk, photo set, signed merch, Q&amp;A</div>
-                </div>
-              </div>
-              <div style="display:flex;flex-direction:column;align-items:flex-end;gap:0.5rem">
-                <div class="pkg-card-price">$150</div>
-                <div class="chk" id="ck-silver">✓</div>
-              </div>
-            </div>
-            <div class="pkg-card" id="pc-gold" onclick="selPkg('gold')">
-              <div class="pkg-card-left">
-                <div style="font-size:1.4rem">👑</div>
-                <div>
-                  <div class="pkg-card-name">Gold — VIP Access</div>
-                  <div class="pkg-card-desc">Full hour, styling consult, photo shoot, dinner seat, premium merch</div>
-                </div>
-              </div>
-              <div style="display:flex;flex-direction:column;align-items:flex-end;gap:0.5rem">
-                <div class="pkg-card-price">$300</div>
-                <div class="chk" id="ck-gold">✓</div>
-              </div>
-            </div>
-          </div>
-          <div class="modal-nav"><span></span><button class="btn-next" onclick="goStep(2)">Continue →</button></div>
-        </div>
-
-        <!-- STEP 2 -->
-        <div class="panel" id="p2">
-          <p style="font-size:0.8rem;color:var(--muted);margin-bottom:1.5rem">Fill in your details and preferred date &amp; time.</p>
-          <div class="mrow">
-            <div class="mfield"><label>First Name *</label><input type="text" id="f-fn" placeholder="Your first name"/></div>
-            <div class="mfield"><label>Last Name *</label><input type="text" id="f-ln" placeholder="Your last name"/></div>
-          </div>
-          <div class="mfield"><label>Email Address *</label><input type="email" id="f-em" placeholder="your@email.com"/></div>
-          <div class="mfield"><label>Phone Number *</label><input type="tel" id="f-ph" placeholder="+1 (555) 000-0000"/></div>
-          <div class="mrow">
-            <div class="mfield"><label>Preferred Date *</label><input type="date" id="f-dt"/></div>
-            <div class="mfield">
-              <label>Preferred Time *</label>
-              <select id="f-tm">
-                <option value="">Select time slot</option>
-                <option>10:00 AM</option><option>11:00 AM</option><option>12:00 PM</option>
-                <option>1:00 PM</option><option>2:00 PM</option><option>3:00 PM</option>
-                <option>4:00 PM</option><option>5:00 PM</option>
-              </select>
-            </div>
-          </div>
-          <div class="mfield"><label>Special Requests (Optional)</label><input type="text" id="f-note" placeholder="Anything Darryle's team should know"/></div>
-          <div class="modal-nav">
-            <button class="btn-prev" onclick="goStep(1)">← Back</button>
-            <button class="btn-next" onclick="goStep(3)">Review →</button>
-          </div>
-        </div>
-
-        <!-- STEP 3 -->
-        <div class="panel" id="p3">
-          <p style="font-size:0.8rem;color:var(--muted);margin-bottom:1.5rem">Review your booking before submitting.</p>
-          <div class="confirm-box" id="summary"></div>
-          <div class="priv">🔒 Your information is private and will only be seen by Darryle's management team.</div>
-          <div class="modal-nav" style="margin-top:1.5rem">
-            <button class="btn-prev" onclick="goStep(2)">← Edit</button>
-            <button class="btn-next" onclick="submitBooking()">Confirm Booking ✓</button>
-          </div>
+          <div class="pkg-name">Bronze — Fan Experience</div>
+          <div class="pkg-desc">Meet Darryle, quick photo, autographed card</div>
+          <div class="pkg-price">$75</div>
         </div>
       </div>
-    </div>
 
-    <!-- SUCCESS -->
-    <div class="success" id="successScreen">
-      <div class="success-icon">🎉</div>
-      <h2>You're Booked!</h2>
-      <p>Darryle's team will reach out to confirm your spot and send payment details. Check your email within 24 hours.</p>
-      <button class="btn-gold" onclick="closeModal()">Close</button>
-    </div>
+      <div class="pkg" onclick="openModal('silver')">
+        <div class="pkg-ico">🤝</div>
+        <div>
+          <div class="pkg-name">Silver — Style Session</div>
+          <div class="pkg-desc">30-min style talk, photo set, signed merch, Q&amp;A</div>
+          <div class="pkg-price">$150</div>
+        </div>
+      </div>
 
+      <div class="pkg" onclick="openModal('gold')">
+        <div class="pkg-ico">👑</div>
+        <div>
+          <div class="pkg-name">Gold — VIP Access</div>
+          <div class="pkg-desc">Full hour, styling consult, photo shoot, dinner seat, premium merch</div>
+          <div class="pkg-price">$300</div>
+        </div>
+      </div>
+
+      <button class="book-now-btn" onclick="openModal()">Book Now →</button>
+    </div>
+  </div>
+
+</div>
+```
+
+  </section>
+
+  <!-- ══════════════════════════
+       CONTACT
+  ══════════════════════════ -->
+
+  <section id="contact">
+
+```
+<!-- Left: Management info -->
+<div class="contact-left">
+  <p class="eyebrow">Management</p>
+  <h2 class="sec-title">Get In <em>Touch</em></h2>
+  <div class="rule"></div>
+  <div class="body-text">
+    <p>For bookings, brand collaborations, press inquiries, or management contact — reach out directly or use the form.</p>
+  </div>
+
+  <div class="mgmt-block">
+    <div class="mgmt-label">Management Email</div>
+    <div class="mgmt-email">darrylejonesmgteam@gmail.com</div>
+    <div class="mgmt-note">Response within 24–48 business hours</div>
+  </div>
+
+  <div class="mgmt-block" style="border-left-color:#555">
+    <div class="mgmt-label">Personal</div>
+    <div class="mgmt-email" style="font-size:0.9rem">darrylejonesfm@gmail.com</div>
   </div>
 </div>
 
-<script src="script.js"></script>
+<!-- Right: Contact form -->
+<div class="contact-right">
+  <p class="eyebrow">Send a Message</p>
+  <h2 class="sec-title" style="font-size:2rem;margin-bottom:1.5rem">Direct <em>Inquiry</em></h2>
+
+  <form id="contactForm">
+    <div class="field-row">
+      <div class="field">
+        <label>First Name</label>
+        <input type="text" name="first_name" placeholder="Marcus" required/>
+      </div>
+      <div class="field">
+        <label>Last Name</label>
+        <input type="text" name="last_name" placeholder="Williams" required/>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Email</label>
+      <input type="email" name="email" placeholder="your@email.com" required/>
+    </div>
+
+    <div class="field">
+      <label>Phone (Optional)</label>
+      <input type="tel" name="phone" placeholder="+1 (555) 000-0000"/>
+    </div>
+
+    <div class="field">
+      <label>Inquiry Type</label>
+      <select name="inquiry_type">
+        <option value="">Select reason</option>
+        <option>Meet &amp; Greet Request</option>
+        <option>Brand Collaboration</option>
+        <option>Photoshoot / Runway</option>
+        <option>Style Consultation</option>
+        <option>Media / Press</option>
+        <option>General Inquiry</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label>Message</label>
+      <textarea name="message" placeholder="Tell Darryle's team what you have in mind..." required></textarea>
+    </div>
+
+    <button type="submit" class="submit-btn">Send Message</button>
+  </form>
+</div>
+```
+
+  </section>
+
+  <!-- ══════════════════════════
+       FOOTER
+  ══════════════════════════ -->
+
+  <footer>
+    <div class="foot-logo">Darryle<span>Jones</span></div>
+    <p class="foot-copy">© 2025 Darryle Jones. All rights reserved.</p>
+    <div class="foot-socials">
+      <a href="#" title="Instagram">IG</a>
+      <a href="#" title="Facebook">FB</a>
+      <a href="#" title="TikTok">TT</a>
+    </div>
+  </footer>
+
+  <!-- ══════════════════════════
+       BOOKING MODAL
+  ══════════════════════════ -->
+
+  <div class="overlay" id="overlay">
+    <div class="modal" id="modalBox">
+
+```
+  <!-- FORM WRAP -->
+  <div id="formWrap">
+
+    <!-- Modal Header -->
+    <div class="modal-head">
+      <div>
+        <div class="modal-title">Book Your Experience</div>
+        <div class="modal-sub">Darryle Jones — Meet &amp; Greet</div>
+      </div>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+
+    <div class="modal-body">
+
+      <!-- Step Indicators -->
+      <div class="steps">
+        <div class="step active" id="si1">01 · Package</div>
+        <div class="step" id="si2">02 · Details</div>
+        <div class="step" id="si3">03 · Confirm</div>
+      </div>
+
+      <!-- ── STEP 1: Choose Package ── -->
+      <div class="panel active" id="p1">
+        <p style="font-size:0.8rem;color:var(--muted);margin-bottom:1.5rem">
+          Choose your meet &amp; greet package.
+        </p>
+
+        <div class="pkg-cards">
+
+          <div class="pkg-card" id="pc-bronze" onclick="selectPackage('bronze')">
+            <div class="pkg-card-left">
+              <div style="font-size:1.4rem">📸</div>
+              <div>
+                <div class="pkg-card-name">Bronze — Fan Experience</div>
+                <div class="pkg-card-desc">Meet Darryle, quick photo, autographed card</div>
+              </div>
+            </div>
+            <div class="pkg-card-right">
+              <div class="pkg-card-price">$75</div>
+              <div class="chk" id="ck-bronze">✓</div>
+            </div>
+          </div>
+
+          <div class="pkg-card" id="pc-silver" onclick="selectPackage('silver')">
+            <div class="pkg-card-left">
+              <div style="font-size:1.4rem">🤝</div>
+              <div>
+                <div class="pkg-card-name">Silver — Style Session</div>
+                <div class="pkg-card-desc">30-min style talk, photo set, signed merch, Q&amp;A</div>
+              </div>
+            </div>
+            <div class="pkg-card-right">
+              <div class="pkg-card-price">$150</div>
+              <div class="chk" id="ck-silver">✓</div>
+            </div>
+          </div>
+
+          <div class="pkg-card" id="pc-gold" onclick="selectPackage('gold')">
+            <div class="pkg-card-left">
+              <div style="font-size:1.4rem">👑</div>
+              <div>
+                <div class="pkg-card-name">Gold — VIP Access</div>
+                <div class="pkg-card-desc">Full hour, styling consult, photo shoot, dinner seat, premium merch</div>
+              </div>
+            </div>
+            <div class="pkg-card-right">
+              <div class="pkg-card-price">$300</div>
+              <div class="chk" id="ck-gold">✓</div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="modal-nav">
+          <span></span>
+          <button class="btn-next" onclick="goStep(2)">Continue →</button>
+        </div>
+      </div>
+
+      <!-- ── STEP 2: Personal Details ── -->
+      <div class="panel" id="p2">
+        <p style="font-size:0.8rem;color:var(--muted);margin-bottom:1.5rem">
+          Fill in your details and preferred date &amp; time.
+        </p>
+
+        <div class="mrow">
+          <div class="mfield">
+            <label>First Name *</label>
+            <input type="text" id="f-fn" placeholder="Your first name"/>
+          </div>
+          <div class="mfield">
+            <label>Last Name *</label>
+            <input type="text" id="f-ln" placeholder="Your last name"/>
+          </div>
+        </div>
+
+        <div class="mfield">
+          <label>Email Address *</label>
+          <input type="email" id="f-em" placeholder="your@email.com"/>
+        </div>
+
+        <div class="mfield">
+          <label>Phone Number *</label>
+          <input type="tel" id="f-ph" placeholder="+1 (555) 000-0000"/>
+        </div>
+
+        <div class="mrow">
+          <div class="mfield">
+            <label>Preferred Date *</label>
+            <input type="date" id="f-dt"/>
+          </div>
+          <div class="mfield">
+            <label>Preferred Time *</label>
+            <select id="f-tm">
+              <option value="">Select time slot</option>
+              <option>10:00 AM</option>
+              <option>11:00 AM</option>
+              <option>12:00 PM</option>
+              <option>1:00 PM</option>
+              <option>2:00 PM</option>
+              <option>3:00 PM</option>
+              <option>4:00 PM</option>
+              <option>5:00 PM</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="mfield">
+          <label>Special Requests (Optional)</label>
+          <input type="text" id="f-note" placeholder="Anything Darryle's team should know"/>
+        </div>
+
+        <div class="modal-nav">
+          <button class="btn-prev" onclick="goStep(1)">← Back</button>
+          <button class="btn-next" onclick="goStep(3)">Review →</button>
+        </div>
+      </div>
+
+      <!-- ── STEP 3: Confirm ── -->
+      <div class="panel" id="p3">
+        <p style="font-size:0.8rem;color:var(--muted);margin-bottom:1.5rem">
+          Review your booking before submitting.
+        </p>
+
+        <div class="confirm-box" id="summary"></div>
+
+        <div class="priv">
+          🔒 Your information is private and will only be seen by Darryle's management team.
+        </div>
+
+        <div class="modal-nav" style="margin-top:1.5rem">
+          <button class="btn-prev" onclick="goStep(2)">← Edit</button>
+          <button class="btn-next" onclick="submitBooking()">Confirm Booking ✓</button>
+        </div>
+      </div>
+
+    </div><!-- end modal-body -->
+  </div><!-- end formWrap -->
+
+  <!-- SUCCESS SCREEN -->
+  <div class="success" id="successScreen">
+    <div class="success-icon">🎉</div>
+    <h2>You're Booked!</h2>
+    <p>
+      Darryle's team will reach out to confirm your spot and send payment details.
+      Check your email within 24 hours.
+    </p>
+    <button class="btn-gold" onclick="closeModal()">Close</button>
+  </div>
+
+</div><!-- end modal -->
+```
+
+  </div><!-- end overlay -->
+
+  <!-- JavaScript — loaded at end of body for performance -->
+
+  <script src="js/main.js"></script>
+
+</body>
+</html>
