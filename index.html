@@ -1,125 +1,616 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Darryle Jones — Fashion Model</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <style>
-        /* -----------------------------------------------------------
-           1. CORE RESET & VARIABLES
-           ----------------------------------------------------------- */
-        *,*::before,*::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Darryle Jones — Fashion Model</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#0d0d0d;
+  --charcoal:#1a1a1a;
+  --dark:#242424;
+  --border:#2e2e2e;
+  --white:#ffffff;
+  --muted:#a0a0a0;
+  --accent:#c9a96e;
+  --accent2:#e8c98a;
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--black);color:#e8e6e2;overflow-x:hidden}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--black)}
+::-webkit-scrollbar-thumb{background:var(--accent)}
 
-        :root {
-            /* Fix #1: Repaired variables with standard hyphens '--' */
-            --black: #0d0d0d;
-            --charcoal: #1a1a1a;
-            --dark: #242424;
-            --mid: #3a3a3a;
-            --border: #2e2e2e;
-            --white: #ffffff;
-            --offwhite: #f5f3ef;
-            --muted: #a0a0a0;
-            --accent: #c9a96e;
-            --accent2: #e8c98a;
-            --text: #e8e6e2;
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1.2rem 4rem;background:rgba(13,13,13,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:#fff;text-decoration:none}
+.nav-logo span{color:var(--accent)}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{font-size:0.7rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.2s}
+.nav-links a:hover{color:#fff}
+.nav-book{background:var(--accent);color:var(--black);padding:0.65rem 1.6rem;font-size:0.68rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background 0.2s}
+.nav-book:hover{background:var(--accent2)}
 
-            /* Base Font Size */
-            font-size: 16px; 
-        }
+/* HERO */
+#hero{min-height:100vh;display:grid;grid-template-columns:55% 45%;padding-top:72px}
+.hero-left{display:flex;flex-direction:column;justify-content:center;padding:5rem 4rem 5rem 5rem}
+.hero-eye{font-size:0.65rem;font-weight:500;letter-spacing:0.35em;text-transform:uppercase;color:var(--accent);margin-bottom:2rem;display:flex;align-items:center;gap:1rem}
+.hero-eye::before{content:'';width:36px;height:1px;background:var(--accent)}
+.hero-name{font-family:'Playfair Display',serif;font-size:clamp(4rem,8vw,8.5rem);line-height:0.92;font-weight:900;color:#fff;margin-bottom:2rem}
+.hero-name span{color:var(--accent);display:block;font-style:italic}
+.hero-desc{font-size:1rem;font-weight:300;line-height:1.75;color:var(--muted);max-width:400px;margin-bottom:3rem}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-gold{background:var(--accent);color:var(--black);padding:0.95rem 2.4rem;font-size:0.72rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background 0.2s;text-decoration:none;display:inline-block}
+.btn-gold:hover{background:var(--accent2)}
+.btn-ghost{background:transparent;color:#fff;padding:0.95rem 2.4rem;font-size:0.72rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;border:1px solid rgba(255,255,255,0.25);transition:border-color 0.2s;display:inline-block}
+.btn-ghost:hover{border-color:#fff}
+.hero-right{position:relative;overflow:hidden;background:var(--charcoal)}
+.hero-right img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+.hero-right::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,var(--black) 0%,transparent 30%)}
+.hero-badge{position:absolute;bottom:2rem;right:2rem;z-index:3;background:var(--accent);color:var(--black);padding:0.7rem 1.3rem;font-size:0.62rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase}
 
-        html {
-            scroll-behavior: smooth;
-        }
+/* TICKER */
+.ticker{background:var(--accent);color:var(--black);padding:0.8rem 0;overflow:hidden;white-space:nowrap}
+.ticker-inner{display:inline-block;animation:ticker 22s linear infinite}
+.ticker-inner span{font-size:0.68rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;margin:0 2.5rem}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
-        body {
-            font-family: 'DM Sans', sans-serif;
-            background: var(--black);
-            color: var(--text);
-            overflow-x: hidden;
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-        }
+/* ABOUT */
+#about{display:grid;grid-template-columns:1fr 1fr;min-height:80vh}
+.about-imgs{position:relative;background:var(--charcoal);overflow:hidden}
+.about-imgs img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+.about-content{padding:6rem 5rem;display:flex;flex-direction:column;justify-content:center;background:var(--charcoal)}
+.eyebrow{font-size:0.62rem;font-weight:500;letter-spacing:0.3em;text-transform:uppercase;color:var(--accent);margin-bottom:1.2rem;display:flex;align-items:center;gap:0.8rem}
+.eyebrow::before{content:'';width:28px;height:1px;background:var(--accent)}
+.sec-title{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,3.5vw,3.4rem);font-weight:700;color:#fff;line-height:1.1;margin-bottom:2rem}
+.sec-title em{color:var(--accent);font-style:italic}
+.rule{width:50px;height:2px;background:var(--accent);margin-bottom:2rem}
+.body-text{font-size:0.95rem;font-weight:300;line-height:1.85;color:var(--muted);max-width:460px;margin-bottom:2.5rem}
+.body-text p+p{margin-top:1rem}
 
-        a { text-decoration: none; color: inherit; transition: .3s; }
-        ul { list-style: none; }
-        img { max-width: 100%; display: block; }
-        button { cursor: pointer; border: none; font-family: inherit; }
+/* GALLERY */
+#gallery{padding:5rem 0;background:var(--black)}
+.gal-head{text-align:center;padding:0 2rem 3rem}
+.gal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
+.g-item{position:relative;overflow:hidden;aspect-ratio:2/3}
+.g-item img{width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform 0.7s}
+.g-item:hover img{transform:scale(1.05)}
+.g-over{position:absolute;inset:0;background:linear-gradient(to top,rgba(13,13,13,0.85) 0%,transparent 55%);opacity:0;transition:opacity 0.3s;display:flex;align-items:flex-end;padding:1.5rem}
+.g-item:hover .g-over{opacity:1}
+.g-label{font-size:0.65rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent)}
 
-        h1,h2,h3,h4 {
-            font-family: 'Playfair Display', serif; /* Fix #2: Corrected single quotes */
-            font-weight: 900;
-            line-height: 1.1;
-            color: var(--white);
-        }
+/* MEET & GREET */
+#meetgreet{padding:7rem 5rem;background:var(--charcoal)}
+.mg-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.mg-card{background:var(--dark);border:1px solid var(--border);overflow:hidden}
+.mg-head{background:var(--accent);padding:1.4rem 2rem;font-size:0.65rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--black)}
+.pkg{padding:1.5rem 2rem;border-bottom:1px solid var(--border);display:flex;gap:1.2rem;align-items:flex-start;cursor:pointer;transition:background 0.2s}
+.pkg:last-of-type{border-bottom:none}
+.pkg:hover{background:rgba(201,169,110,0.06)}
+.pkg-ico{font-size:1.3rem;flex-shrink:0;margin-top:2px}
+.pkg-name{font-size:0.88rem;font-weight:600;color:#fff;margin-bottom:0.25rem}
+.pkg-desc{font-size:0.75rem;color:var(--muted);font-weight:300;line-height:1.5;margin-bottom:0.3rem}
+.pkg-price{font-size:0.8rem;font-weight:600;color:var(--accent)}
+.book-now-btn{display:block;margin:1.8rem 2rem;background:var(--accent);color:var(--black);padding:1rem;text-align:center;font-size:0.72rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background 0.2s}
+.book-now-btn:hover{background:var(--accent2)}
 
-        p { color: var(--muted); }
+/* CONTACT */
+#contact{display:grid;grid-template-columns:1fr 1fr;min-height:60vh}
+.contact-left{background:var(--black);padding:5rem}
+.mgmt-block{margin-top:2.5rem;padding:2rem;background:var(--charcoal);border:1px solid var(--border);border-left:3px solid var(--accent)}
+.mgmt-label{font-size:0.6rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:0.5rem}
+.mgmt-email{font-family:'Playfair Display',serif;font-size:1rem;color:#fff}
+.mgmt-note{font-size:0.75rem;color:var(--muted);margin-top:0.3rem}
+.contact-right{background:var(--charcoal);padding:5rem}
+.field{margin-bottom:1.2rem}
+.field label{display:block;font-size:0.62rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);margin-bottom:0.45rem}
+.field input,.field select,.field textarea{width:100%;padding:0.85rem 1rem;background:var(--dark);border:1px solid var(--border);color:#fff;font-family:'DM Sans',sans-serif;font-size:0.88rem;font-weight:300;outline:none;transition:border-color 0.2s;appearance:none}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--accent)}
+.field textarea{resize:vertical;min-height:90px}
+.field select option{background:var(--dark)}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.submit-btn{width:100%;background:var(--accent);color:var(--black);padding:1rem;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;transition:background 0.2s;margin-top:0.5rem}
+.submit-btn:hover{background:var(--accent2)}
 
-        /* ... [All CSS Styling From darryle.txt, With All Smart Quotes and Dashes Corrected] ... */
-        
-    </style>
+/* FOOTER */
+footer{background:var(--charcoal);padding:2.5rem 5rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border)}
+.foot-logo{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#fff}
+.foot-logo span{color:var(--accent)}
+.foot-copy{font-size:0.65rem;color:var(--muted)}
+.foot-socials{display:flex;gap:0.75rem}
+.foot-socials a{width:34px;height:34px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--muted);text-decoration:none;font-size:0.7rem;font-weight:600;transition:all 0.2s}
+.foot-socials a:hover{border-color:var(--accent);color:var(--accent)}
+
+/* MODAL */
+.overlay{position:fixed;inset:0;z-index:999;background:rgba(0,0,0,0.88);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:1.5rem;opacity:0;visibility:hidden;transition:all 0.3s}
+.overlay.open{opacity:1;visibility:visible}
+.modal{background:var(--charcoal);border:1px solid var(--border);width:100%;max-width:620px;max-height:90vh;overflow-y:auto;transform:translateY(24px);transition:transform 0.3s}
+.overlay.open .modal{transform:translateY(0)}
+.modal-head{background:var(--accent);padding:2rem 2.5rem;display:flex;justify-content:space-between;align-items:flex-start}
+.modal-title{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:var(--black)}
+.modal-sub{font-size:0.7rem;color:rgba(0,0,0,0.6);margin-top:0.2rem}
+.modal-close{background:none;border:none;cursor:pointer;font-size:1.4rem;color:var(--black);line-height:1}
+.modal-body{padding:2.5rem}
+.steps{display:flex;margin-bottom:2.5rem}
+.step{flex:1;padding:0.6rem;text-align:center;font-size:0.6rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);border-bottom:2px solid var(--border);transition:all 0.3s}
+.step.active{color:var(--accent);border-color:var(--accent)}
+.step.done{color:#fff;border-color:#fff}
+.panel{display:none}
+.panel.active{display:block}
+.pkg-cards{display:grid;gap:0.75rem;margin-bottom:2rem}
+.pkg-card{border:1.5px solid var(--border);padding:1.3rem 1.5rem;cursor:pointer;transition:all 0.2s;display:flex;gap:1.2rem;align-items:center;justify-content:space-between}
+.pkg-card:hover{border-color:var(--accent)}
+.pkg-card.sel{border-color:var(--accent);background:rgba(201,169,110,0.06)}
+.pkg-card-left{display:flex;gap:1rem;align-items:flex-start}
+.pkg-card-name{font-size:0.9rem;font-weight:600;color:#fff;margin-bottom:0.2rem}
+.pkg-card-desc{font-size:0.75rem;color:var(--muted);line-height:1.5}
+.pkg-card-price{font-size:1.1rem;font-weight:700;color:var(--accent);white-space:nowrap}
+.chk{width:20px;height:20px;border:1.5px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:var(--accent);flex-shrink:0;transition:all 0.2s}
+.pkg-card.sel .chk{background:var(--accent);border-color:var(--accent);color:var(--black)}
+.mfield{margin-bottom:1.2rem}
+.mfield label{display:block;font-size:0.6rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);margin-bottom:0.45rem}
+.mfield input,.mfield select{width:100%;padding:0.8rem 1rem;background:var(--dark);border:1px solid var(--border);color:#fff;font-family:'DM Sans',sans-serif;font-size:0.88rem;outline:none;transition:border-color 0.2s;appearance:none}
+.mfield input:focus,.mfield select:focus{border-color:var(--accent)}
+.mfield select option{background:var(--dark)}
+.mrow{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.modal-nav{display:flex;justify-content:space-between;margin-top:2rem}
+.btn-prev{background:none;border:1px solid var(--border);color:var(--muted);padding:0.75rem 1.5rem;font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s}
+.btn-prev:hover{border-color:#fff;color:#fff}
+.btn-next{background:var(--accent);color:var(--black);padding:0.75rem 2rem;font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;border:none;font-family:'DM Sans',sans-serif;transition:background 0.2s}
+.btn-next:hover{background:var(--accent2)}
+.confirm-box{background:var(--dark);border:1px solid var(--border);padding:1.5rem;margin-bottom:1.5rem}
+.crow{display:flex;justify-content:space-between;padding:0.55rem 0;border-bottom:1px solid var(--border)}
+.crow:last-child{border-bottom:none}
+.ckey{font-size:0.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em}
+.cval{font-size:0.85rem;color:#fff;font-weight:500}
+.priv{font-size:0.7rem;color:var(--muted);display:flex;gap:0.5rem;line-height:1.5;margin-top:1rem}
+.success{text-align:center;padding:3rem 2rem;display:none}
+.success-icon{font-size:3rem;margin-bottom:1.5rem}
+.success h2{font-family:'Playfair Display',serif;font-size:1.8rem;color:#fff;margin-bottom:0.75rem}
+.success p{font-size:0.9rem;color:var(--muted);line-height:1.7;max-width:340px;margin:0 auto 2rem}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  nav{padding:1rem 1.5rem}
+  .nav-links{display:none}
+  #hero{grid-template-columns:1fr;min-height:auto}
+  .hero-left{padding:5rem 1.8rem 3rem}
+  .hero-right{height:70vw}
+  #about{grid-template-columns:1fr}
+  .about-imgs{height:55vw}
+  .about-content{padding:3rem 1.8rem}
+  .gal-grid{grid-template-columns:repeat(2,1fr)}
+  #meetgreet{padding:4rem 1.8rem}
+  .mg-inner{grid-template-columns:1fr;gap:3rem}
+  #contact{grid-template-columns:1fr}
+  .contact-left,.contact-right{padding:3rem 1.8rem}
+  .field-row{grid-template-columns:1fr}
+  footer{flex-direction:column;gap:1.5rem;text-align:center;padding:2rem 1.5rem}
+  .modal-body{padding:1.8rem}
+  .mrow{grid-template-columns:1fr}
+}
+</style>
 </head>
 <body>
 
-<div class="booking-section">
-    <div class="booking-card">
-        <h3>Book Meet & Greet Session</h3>
-        <p>Schedule exclusive one-on-one time with Darryle. Limited availability. Fill the booking request below to register.</p>
-        
-        <form action="https://formspree.io/f/mjgdgrnl" method="POST" class="booking-form-inline">
-            <div class="row">
-                <input type="text" name="b_name" placeholder="Full Name" required>
-                <input type="email" name="b_email" placeholder="Contact Email" required>
-            </div>
-            <textarea name="b_message" rows="3" placeholder="Preferred Location/Event and Message..." required></textarea>
-            <button type="submit">Submit Request</button>
-        </form>
-        
-        <p class="direct-mail">Alternatively, send booking requests to: <a href="mailto:Darrylejonesmgteam@gmail.com">Darrylejonesmgteam@gmail.com</a></p>
-    </div>
-</div>
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Darryle<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#gallery">Portfolio</a></li>
+    <li><a href="#meetgreet">Events</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="nav-book" onclick="openModal()">Book Meet &amp; Greet</button>
+</nav>
 
-<section id="contact" class="contact">
-    <div class="wrapper">
-        <div class="contact-grid">
-            <div class="contact-form-side">
-                <h2>Contact & Bookings</h2>
-                <p>For model bookings, professional inquiries, and media requests, please use the form below.</p>
-                
-                <form action="https://formspree.io/f/mjgdgrnl" method="POST" class="main-contact-form">
-                    <div class="input-row">
-                        <div class="input-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" placeholder="John Doe" required>
-                        </div>
-                        <div class="input-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" placeholder="john.doe@email.com" required>
-                        </div>
-                    </div>
-                    <div class="input-row">
-                        <div class="input-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" name="subject" placeholder="Collaboration / Media" required>
-                        </div>
-                    </div>
-                    <div class="input-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="7" placeholder="Your inquiry details..." required></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">
-                        <span>Send Message</span>
-                    </button>
-                </form>
-            </div>
-            </div>
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <p class="hero-eye">Fashion · Style · Presence</p>
+    <h1 class="hero-name">Darryle<span>Jones</span></h1>
+    <p class="hero-desc">Fashion model, style authority, and cultural presence — redefining elegance one look at a time.</p>
+    <div class="hero-btns">
+      <button class="btn-gold" onclick="openModal()">Book Meet &amp; Greet</button>
+      <a href="#about" class="btn-ghost">Learn More</a>
     </div>
+  </div>
+  <div class="hero-right">
+    <img src="IMG_1833.jpeg" alt="Darryle Jones"/>
+    <div class="hero-badge">Alexandria, VA</div>
+  </div>
 </section>
 
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <span>Fashion Model</span><span>★</span><span>Style Icon</span><span>★</span><span>Brand Ambassador</span><span>★</span><span>Alexandria, VA</span><span>★</span><span>Meet &amp; Greet Available</span><span>★</span>
+    <span>Fashion Model</span><span>★</span><span>Style Icon</span><span>★</span><span>Brand Ambassador</span><span>★</span><span>Alexandria, VA</span><span>★</span><span>Meet &amp; Greet Available</span><span>★</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-imgs">
+    <img src="IMG_1835.jpeg" alt="Darryle Jones"/>
+  </div>
+  <div class="about-content">
+    <p class="eyebrow">The Man Behind the Style</p>
+    <h2 class="sec-title">More Than<br>a <em>Model</em></h2>
+    <div class="rule"></div>
+    <div class="body-text">
+      <p>Darryle Jones is not just a face in front of the camera — he is a living, breathing statement. With a signature silver beard, impeccable tailoring, and an undeniable presence, Darryle has redefined what it means to be a style icon in modern fashion.</p>
+      <p>Based in Alexandria, VA, Darryle brings decades of refined taste, discipline, and authentic energy to every shoot, runway, and collaboration. Bold, intentional, and unmistakably his own.</p>
+    </div>
+    <button class="btn-gold" onclick="openModal()">Book a Meet &amp; Greet</button>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="gal-head">
+    <p class="eyebrow" style="justify-content:center">Portfolio</p>
+    <h2 class="sec-title" style="color:#fff">Signature <em>Looks</em></h2>
+  </div>
+  <div class="gal-grid">
+    <div class="g-item">
+      <img src="IMG_1833.jpeg" alt="Green Suit"/>
+      <div class="g-over"><span class="g-label">Editorial — Green</span></div>
+    </div>
+    <div class="g-item">
+      <img src="IMG_1835.jpeg" alt="Blue Pinstripe"/>
+      <div class="g-over"><span class="g-label">Blue Pinstripe</span></div>
+    </div>
+    <div class="g-item">
+      <img src="IMG_1834.jpeg" alt="Lifestyle"/>
+      <div class="g-over"><span class="g-label">Lifestyle</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- MEET & GREET -->
+<section id="meetgreet">
+  <div class="mg-inner">
+    <div>
+      <p class="eyebrow">Exclusive Events</p>
+      <h2 class="sec-title">Meet &amp; <em>Greet</em></h2>
+      <div class="rule"></div>
+      <div class="body-text">
+        <p>Get up close with Darryle at exclusive meet &amp; greet events. Fan experience, private styling session, or brand event — this is your chance to connect with the man behind the style.</p>
+        <p>Packages are limited. Book early to secure your spot.</p>
+      </div>
+      <button class="btn-gold" onclick="openModal()">Reserve Your Spot</button>
+    </div>
+    <div>
+      <div class="mg-card">
+        <div class="mg-head">Available Packages</div>
+        <div class="pkg" onclick="openModal('bronze')">
+          <div class="pkg-ico">📸</div>
+          <div>
+            <div class="pkg-name">Bronze — Fan Experience</div>
+            <div class="pkg-desc">Meet Darryle, quick photo, autographed card</div>
+            <div class="pkg-price">$75</div>
+          </div>
+        </div>
+        <div class="pkg" onclick="openModal('silver')">
+          <div class="pkg-ico">🤝</div>
+          <div>
+            <div class="pkg-name">Silver — Style Session</div>
+            <div class="pkg-desc">30-min style talk, photo set, signed merch, Q&amp;A</div>
+            <div class="pkg-price">$150</div>
+          </div>
+        </div>
+        <div class="pkg" onclick="openModal('gold')">
+          <div class="pkg-ico">👑</div>
+          <div>
+            <div class="pkg-name">Gold — VIP Access</div>
+            <div class="pkg-desc">Full hour, styling consult, photo shoot, dinner seat, premium merch</div>
+            <div class="pkg-price">$300</div>
+          </div>
+        </div>
+        <button class="book-now-btn" onclick="openModal()">Book Now →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-left">
+    <p class="eyebrow">Management</p>
+    <h2 class="sec-title">Get In <em>Touch</em></h2>
+    <div class="rule"></div>
+    <div class="body-text">
+      <p>For bookings, brand collaborations, press inquiries, or management contact — reach out directly or use the form.</p>
+    </div>
+    <div class="mgmt-block">
+      <div class="mgmt-label">Management Email</div>
+      <div class="mgmt-email">darrylejonesmgteam@gmail.com</div>
+      <div class="mgmt-note">Response within 24–48 business hours</div>
+    </div>
+    <div class="mgmt-block" style="margin-top:1rem;border-left-color:#555">
+      <div class="mgmt-label">Personal</div>
+      <div class="mgmt-email" style="font-size:0.9rem">darrylejonesfm@gmail.com</div>
+    </div>
+  </div>
+  <div class="contact-right">
+    <p class="eyebrow">Send a Message</p>
+    <h2 class="sec-title" style="font-size:2rem;margin-bottom:1.5rem">Direct <em>Inquiry</em></h2>
+    <form id="contactForm" action="https://formspree.io/f/mjgdgrnl" method="POST">
+      <div class="field-row">
+        <div class="field"><label>First Name</label><input type="text" name="first_name" placeholder="Marcus" required/></div>
+        <div class="field"><label>Last Name</label><input type="text" name="last_name" placeholder="Williams" required/></div>
+      </div>
+      <div class="field"><label>Email</label><input type="email" name="email" placeholder="your@email.com" required/></div>
+      <div class="field"><label>Phone (Optional)</label><input type="tel" name="phone" placeholder="+1 (555) 000-0000"/></div>
+      <div class="field">
+        <label>Inquiry Type</label>
+        <select name="inquiry_type">
+          <option value="">Select reason</option>
+          <option>Meet &amp; Greet Request</option>
+          <option>Brand Collaboration</option>
+          <option>Photoshoot / Runway</option>
+          <option>Style Consultation</option>
+          <option>Media / Press</option>
+          <option>General Inquiry</option>
+        </select>
+      </div>
+      <div class="field"><label>Message</label><textarea name="message" placeholder="Tell Darryle's team what you have in mind..." style="background:var(--dark);border:1px solid var(--border);width:100%;padding:0.85rem 1rem;color:#fff;font-family:'DM Sans',sans-serif;font-size:0.88rem;outline:none;resize:vertical;min-height:90px" required></textarea></div>
+      <button type="submit" class="submit-btn">Send Message</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-logo">Darryle<span>Jones</span></div>
+  <p class="foot-copy">© 2025 Darryle Jones. All rights reserved.</p>
+  <div class="foot-socials">
+    <a href="#" title="Instagram">IG</a>
+    <a href="#" title="Facebook">FB</a>
+    <a href="#" title="TikTok">TT</a>
+  </div>
+</footer>
+
+<!-- BOOKING MODAL -->
+<div class="overlay" id="overlay" onclick="handleBg(event)">
+  <div class="modal" id="modalBox">
+
+    <div id="formWrap">
+      <div class="modal-head">
+        <div>
+          <div class="modal-title">Book Your Experience</div>
+          <div class="modal-sub">Darryle Jones — Meet &amp; Greet</div>
+        </div>
+        <button class="modal-close" onclick="closeModal()">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="steps">
+          <div class="step active" id="si1">01 · Package</div>
+          <div class="step" id="si2">02 · Details</div>
+          <div class="step" id="si3">03 · Confirm</div>
+        </div>
+
+        <!-- STEP 1 -->
+        <div class="panel active" id="p1">
+          <p style="font-size:0.8rem;color:var(--muted);margin-bottom:1.5rem">Choose your meet &amp; greet package.</p>
+          <div class="pkg-cards">
+            <div class="pkg-card" id="pc-bronze" onclick="selPkg('bronze')">
+              <div class="pkg-card-left">
+                <div style="font-size:1.4rem">📸</div>
+                <div>
+                  <div class="pkg-card-name">Bronze — Fan Experience</div>
+                  <div class="pkg-card-desc">Meet Darryle, quick photo, autographed card</div>
+                </div>
+              </div>
+              <div style="display:flex;flex-direction:column;align-items:flex-end;gap:0.5rem">
+                <div class="pkg-card-price">$75</div>
+                <div class="chk" id="ck-bronze">✓</div>
+              </div>
+            </div>
+            <div class="pkg-card" id="pc-silver" onclick="selPkg('silver')">
+              <div class="pkg-card-left">
+                <div style="font-size:1.4rem">🤝</div>
+                <div>
+                  <div class="pkg-card-name">Silver — Style Session</div>
+                  <div class="pkg-card-desc">30-min style talk, photo set, signed merch, Q&amp;A</div>
+                </div>
+              </div>
+              <div style="display:flex;flex-direction:column;align-items:flex-end;gap:0.5rem">
+                <div class="pkg-card-price">$150</div>
+                <div class="chk" id="ck-silver">✓</div>
+              </div>
+            </div>
+            <div class="pkg-card" id="pc-gold" onclick="selPkg('gold')">
+              <div class="pkg-card-left">
+                <div style="font-size:1.4rem">👑</div>
+                <div>
+                  <div class="pkg-card-name">Gold — VIP Access</div>
+                  <div class="pkg-card-desc">Full hour, styling consult, photo shoot, dinner seat, premium merch</div>
+                </div>
+              </div>
+              <div style="display:flex;flex-direction:column;align-items:flex-end;gap:0.5rem">
+                <div class="pkg-card-price">$300</div>
+                <div class="chk" id="ck-gold">✓</div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-nav"><span></span><button class="btn-next" onclick="goStep(2)">Continue →</button></div>
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="panel" id="p2">
+          <p style="font-size:0.8rem;color:var(--muted);margin-bottom:1.5rem">Fill in your details and preferred date &amp; time.</p>
+          <div class="mrow">
+            <div class="mfield"><label>First Name *</label><input type="text" id="f-fn" placeholder="Your first name"/></div>
+            <div class="mfield"><label>Last Name *</label><input type="text" id="f-ln" placeholder="Your last name"/></div>
+          </div>
+          <div class="mfield"><label>Email Address *</label><input type="email" id="f-em" placeholder="your@email.com"/></div>
+          <div class="mfield"><label>Phone Number *</label><input type="tel" id="f-ph" placeholder="+1 (555) 000-0000"/></div>
+          <div class="mrow">
+            <div class="mfield"><label>Preferred Date *</label><input type="date" id="f-dt"/></div>
+            <div class="mfield">
+              <label>Preferred Time *</label>
+              <select id="f-tm">
+                <option value="">Select time slot</option>
+                <option>10:00 AM</option><option>11:00 AM</option><option>12:00 PM</option>
+                <option>1:00 PM</option><option>2:00 PM</option><option>3:00 PM</option>
+                <option>4:00 PM</option><option>5:00 PM</option>
+              </select>
+            </div>
+          </div>
+          <div class="mfield"><label>Special Requests (Optional)</label><input type="text" id="f-note" placeholder="Anything Darryle's team should know"/></div>
+          <div class="modal-nav">
+            <button class="btn-prev" onclick="goStep(1)">← Back</button>
+            <button class="btn-next" onclick="goStep(3)">Review →</button>
+          </div>
+        </div>
+
+        <!-- STEP 3 -->
+        <div class="panel" id="p3">
+          <p style="font-size:0.8rem;color:var(--muted);margin-bottom:1.5rem">Review your booking before submitting.</p>
+          <div class="confirm-box" id="summary"></div>
+          <div class="priv">🔒 Your information is private and will only be seen by Darryle's management team.</div>
+          <div class="modal-nav" style="margin-top:1.5rem">
+            <button class="btn-prev" onclick="goStep(2)">← Edit</button>
+            <button class="btn-next" onclick="submitBooking()">Confirm Booking ✓</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SUCCESS -->
+    <div class="success" id="successScreen">
+      <div class="success-icon">🎉</div>
+      <h2>You're Booked!</h2>
+      <p>Darryle's team will reach out to confirm your spot and send payment details. Check your email within 24 hours.</p>
+      <button class="btn-gold" onclick="closeModal()">Close</button>
+    </div>
+
+  </div>
+</div>
+
+<script>
+let selPkg_ = null;
+const pkgs = {bronze:{name:'Bronze — Fan Experience',price:'$75'},silver:{name:'Silver — Style Session',price:'$150'},gold:{name:'Gold — VIP Access',price:'$300'}};
+
+function openModal(pkg){
+  document.getElementById('overlay').classList.add('open');
+  document.body.style.overflow='hidden';
+  document.getElementById('formWrap').style.display='block';
+  document.getElementById('successScreen').style.display='none';
+  goStep(1);
+  if(pkg) selPkg(pkg);
+  document.getElementById('f-dt').min = new Date().toISOString().split('T')[0];
+}
+function closeModal(){
+  document.getElementById('overlay').classList.remove('open');
+  document.body.style.overflow='';
+}
+function handleBg(e){if(e.target===document.getElementById('overlay'))closeModal();}
+
+function selPkg(id){
+  selPkg_=id;
+  ['bronze','silver','gold'].forEach(p=>{
+    document.getElementById('pc-'+p).classList.remove('sel');
+  });
+  document.getElementById('pc-'+id).classList.add('sel');
+}
+
+function goStep(n){
+  if(n===2&&!selPkg_){alert('Please select a package first.');return;}
+  if(n===3){
+    const fn=document.getElementById('f-fn').value.trim();
+    const ln=document.getElementById('f-ln').value.trim();
+    const em=document.getElementById('f-em').value.trim();
+    const ph=document.getElementById('f-ph').value.trim();
+    const dt=document.getElementById('f-dt').value;
+    const tm=document.getElementById('f-tm').value;
+    if(!fn||!ln||!em||!ph||!dt||!tm){alert('Please fill in all required fields.');return;}
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)){alert('Please enter a valid email.');return;}
+    const d=new Date(dt+'T12:00:00');
+    const ds=d.toLocaleDateString('en-US',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
+    const p=pkgs[selPkg_];
+    document.getElementById('summary').innerHTML=`
+      <div class="crow"><span class="ckey">Package</span><span class="cval">${p.name}</span></div>
+      <div class="crow"><span class="ckey">Price</span><span class="cval">${p.price}</span></div>
+      <div class="crow"><span class="ckey">Name</span><span class="cval">${fn} ${ln}</span></div>
+      <div class="crow"><span class="ckey">Email</span><span class="cval">${em}</span></div>
+      <div class="crow"><span class="ckey">Phone</span><span class="cval">${ph}</span></div>
+      <div class="crow"><span class="ckey">Date</span><span class="cval">${ds}</span></div>
+      <div class="crow"><span class="ckey">Time</span><span class="cval">${tm}</span></div>
+    `;
+  }
+  [1,2,3].forEach(i=>{
+    document.getElementById('p'+i).classList.remove('active');
+    const s=document.getElementById('si'+i);
+    s.classList.remove('active','done');
+    if(i<n)s.classList.add('done');
+    else if(i===n)s.classList.add('active');
+  });
+  document.getElementById('p'+n).classList.add('active');
+  document.getElementById('modalBox').scrollTop=0;
+}
+
+async function submitBooking(){
+  const fn=document.getElementById('f-fn').value.trim();
+  const ln=document.getElementById('f-ln').value.trim();
+  const em=document.getElementById('f-em').value.trim();
+  const ph=document.getElementById('f-ph').value.trim();
+  const dt=document.getElementById('f-dt').value;
+  const tm=document.getElementById('f-tm').value;
+  const nt=document.getElementById('f-note').value.trim();
+  const p=pkgs[selPkg_];
+
+  try{
+    const res=await fetch('https://formspree.io/f/mjgdgrnl',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify({
+        _subject:'New Meet & Greet Booking — '+p.name,
+        package:p.name,
+        price:p.price,
+        name:fn+' '+ln,
+        email:em,
+        phone:ph,
+        date:dt,
+        time:tm,
+        notes:nt||'None'
+      })
+    });
+    if(res.ok){
+      document.getElementById('formWrap').style.display='none';
+      document.getElementById('successScreen').style.display='block';
+    }else{
+      alert('Something went wrong. Please email darrylejonesmgteam@gmail.com directly.');
+    }
+  }catch(e){
+    alert('Connection error. Please email darrylejonesmgteam@gmail.com directly.');
+  }
+}
+
+// Contact form
+document.getElementById('contactForm').addEventListener('submit',async function(e){
+  e.preventDefault();
+  const btn=this.querySelector('.submit-btn');
+  btn.textContent='Sending...';
+  try{
+    const res=await fetch('https://formspree.io/f/mjgdgrnl',{method:'POST',body:new FormData(this),headers:{Accept:'application/json'}});
+    if(res.ok){btn.textContent='Message Sent ✓';this.reset();}
+    else{btn.textContent='Send Message';}
+  }catch(e){btn.textContent='Send Message';}
+});
+
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}
+  });
+});
+</script>
 </body>
 </html>
