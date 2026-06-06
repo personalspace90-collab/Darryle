@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Darryle Jones — Fashion Model</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --black:#0d0d0d;
+  --charcoal:#1a1a1a;
+  --dark:#242424;
+  --mid:#3a3a3a;
+  --border:#2e2e2e;
+  --white:#ffffff;
+  --offwhite:#f5f3ef;
+  --muted:#a0a0a0;
+  --accent:#c9a96e;
+  --accent2:#e8c98a;
+  --text:#e8e6e2;
+}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--black);color:var(--text);overflow-x:hidden;}
+/* ... (Rest of your CSS structure remains here, but ensure all '--' use standard hyphens) ... */
+/* NOTE: Ensure all variables like var(--border) use straight hyphens. */
+</style>
+</head>
+<body>
+
+<section id="contact">
+    <div class="contact-dark">
+        <h3>Contact Management</h3>
+        <div class="mgmt-block">
+            <p class="mgmt-label">General Inquiries</p>
+            <p class="mgmt-email">Darrylejonesfm@gmail.com</p>
+        </div>
+        <div class="mgmt-block">
+            <p class="mgmt-label">Management Team</p>
+            <p class="mgmt-email">Darrylejonesmgteam@gmail.com</p>
+        </div>
+    </div>
+    
+    <div class="contact-form-side">
+        <form action="https://formspree.io/f/mjgdgrnl" method="POST">
+            <div class="field">
+                <label>Name</label>
+                <input type="text" name="name" required>
+            </div>
+            <div class="field">
+                <label>Email</label>
+                <input type="email" name="email" required>
+            </div>
+            <div class="field">
+                <label>Message</label>
+                <textarea name="message" required></textarea>
+            </div>
+            <button type="submit" class="submit-main">Send Message</button>
+        </form>
+    </div>
+</section>
+
+</body>
+</html>
