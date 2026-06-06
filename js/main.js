@@ -22,12 +22,14 @@ const overlay = document.getElementById(‘overlay’);
 overlay.classList.add(‘open’);
 document.body.style.overflow = ‘hidden’;
 
-// Reset to step 1 and show form
+// Reset: show form, hide success
 document.getElementById(‘formWrap’).style.display = ‘block’;
 document.getElementById(‘successScreen’).style.display = ‘none’;
+
+// Reset step indicators + panels
 goStep(1);
 
-// Pre-select package if passed in
+// Pre-select package if one was passed in
 if (pkg) selectPackage(pkg);
 
 // Set min date to today
@@ -39,242 +41,199 @@ document.getElementById(‘overlay’).classList.remove(‘open’);
 document.body.style.overflow = ‘’;
 }
 
-// Close when clicking the dark background
-function handleOverlayClick(e) {
-if (e.target === document.getElementById(‘overlay’)) {
-closeModal();
-}
-}
-
 /* ============================================
-MODAL — PACKAGE SELECTION
+PACKAGE SELECTION
 ============================================ */
 function selectPackage(id) {
 selectedPackage = id;
-
-// Remove selected state from all cards
-[‘bronze’, ‘silver’, ‘gold’].forEach(p => {
+[‘bronze’, ‘silver’, ‘gold’].forEach(function(p) {
 document.getElementById(‘pc-’ + p).classList.remove(‘sel’);
 });
-
-// Add selected state to chosen card
 document.getElementById(‘pc-’ + id).classList.add(‘sel’);
 }
 
 /* ============================================
-MODAL — STEP NAVIGATION
+STEP NAVIGATION
 ============================================ */
 function goStep(n) {
-// Validate step 2 entry
 if (n === 2 && !selectedPackage) {
 alert(‘Please select a package first.’);
 return;
 }
 
-// Validate step 3 entry
 if (n === 3) {
-const fn = document.getElementById(‘f-fn’).value.trim();
-const ln = document.getElementById(‘f-ln’).value.trim();
-const em = document.getElementById(‘f-em’).value.trim();
-const ph = document.getElementById(‘f-ph’).value.trim();
-const dt = document.getElementById(‘f-dt’).value;
-const tm = document.getElementById(‘f-tm’).value;
+var fn = document.getElementById(‘f-fn’).value.trim();
+var ln = document.getElementById(‘f-ln’).value.trim();
+var em = document.getElementById(‘f-em’).value.trim();
+var ph = document.getElementById(‘f-ph’).value.trim();
+var dt = document.getElementById(‘f-dt’).value;
+var tm = document.getElementById(‘f-tm’).value;
 
 ```
 if (!fn || !ln || !em || !ph || !dt || !tm) {
   alert('Please fill in all required fields.');
   return;
 }
-
-const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em);
-if (!emailValid) {
+if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)) {
   alert('Please enter a valid email address.');
   return;
 }
-
 buildConfirmSummary(fn, ln, em, ph, dt, tm);
 ```
 
 }
 
-// Update step indicators
-[1, 2, 3].forEach(i => {
-const panel = document.getElementById(‘p’ + i);
-const indicator = document.getElementById(‘si’ + i);
-
-```
-panel.classList.remove('active');
-indicator.classList.remove('active', 'done');
-
-if (i < n)      indicator.classList.add('done');
-else if (i === n) indicator.classList.add('active');
-```
-
+// Update indicators
+[1, 2, 3].forEach(function(i) {
+document.getElementById(‘p’ + i).classList.remove(‘active’);
+var ind = document.getElementById(‘si’ + i);
+ind.classList.remove(‘active’, ‘done’);
+if (i < n) ind.classList.add(‘done’);
+else if (i === n) ind.classList.add(‘active’);
 });
 
-// Show current panel
 document.getElementById(‘p’ + n).classList.add(‘active’);
-
-// Scroll modal to top
 document.getElementById(‘modalBox’).scrollTop = 0;
 }
 
 /* ============================================
-MODAL — BUILD CONFIRMATION SUMMARY
+BUILD CONFIRM SUMMARY
 ============================================ */
 function buildConfirmSummary(fn, ln, em, ph, dt, tm) {
-const pkg = PACKAGES[selectedPackage];
-const dateObj = new Date(dt + ‘T12:00:00’);
-const dateStr = dateObj.toLocaleDateString(‘en-US’, {
+var pkg = PACKAGES[selectedPackage];
+var d = new Date(dt + ‘T12:00:00’);
+var dateStr = d.toLocaleDateString(‘en-US’, {
 weekday: ‘long’, year: ‘numeric’, month: ‘long’, day: ‘numeric’
 });
 
-document.getElementById(‘summary’).innerHTML = `<div class="crow"><span class="ckey">Package</span><span class="cval">${pkg.name}</span></div> <div class="crow"><span class="ckey">Price</span><span class="cval">${pkg.price}</span></div> <div class="crow"><span class="ckey">Name</span><span class="cval">${fn} ${ln}</span></div> <div class="crow"><span class="ckey">Email</span><span class="cval">${em}</span></div> <div class="crow"><span class="ckey">Phone</span><span class="cval">${ph}</span></div> <div class="crow"><span class="ckey">Date</span><span class="cval">${dateStr}</span></div> <div class="crow"><span class="ckey">Time</span><span class="cval">${tm}</span></div>`;
+document.getElementById(‘summary’).innerHTML =
+‘<div class="crow"><span class="ckey">Package</span><span class="cval">’ + pkg.name + ‘</span></div>’ +
+‘<div class="crow"><span class="ckey">Price</span><span class="cval">’ + pkg.price + ‘</span></div>’ +
+‘<div class="crow"><span class="ckey">Name</span><span class="cval">’ + fn + ’ ’ + ln + ‘</span></div>’ +
+‘<div class="crow"><span class="ckey">Email</span><span class="cval">’ + em + ‘</span></div>’ +
+‘<div class="crow"><span class="ckey">Phone</span><span class="cval">’ + ph + ‘</span></div>’ +
+‘<div class="crow"><span class="ckey">Date</span><span class="cval">’ + dateStr + ‘</span></div>’ +
+‘<div class="crow"><span class="ckey">Time</span><span class="cval">’ + tm + ‘</span></div>’;
 }
 
 /* ============================================
-MODAL — SUBMIT BOOKING (sends to Formspree)
+SUBMIT BOOKING → FORMSPREE
 ============================================ */
-async function submitBooking() {
-const fn = document.getElementById(‘f-fn’).value.trim();
-const ln = document.getElementById(‘f-ln’).value.trim();
-const em = document.getElementById(‘f-em’).value.trim();
-const ph = document.getElementById(‘f-ph’).value.trim();
-const dt = document.getElementById(‘f-dt’).value;
-const tm = document.getElementById(‘f-tm’).value;
-const nt = document.getElementById(‘f-note’).value.trim();
-const pkg = PACKAGES[selectedPackage];
+function submitBooking() {
+var fn  = document.getElementById(‘f-fn’).value.trim();
+var ln  = document.getElementById(‘f-ln’).value.trim();
+var em  = document.getElementById(‘f-em’).value.trim();
+var ph  = document.getElementById(‘f-ph’).value.trim();
+var dt  = document.getElementById(‘f-dt’).value;
+var tm  = document.getElementById(‘f-tm’).value;
+var nt  = document.getElementById(‘f-note’).value.trim();
+var pkg = PACKAGES[selectedPackage];
 
-const btn = document.querySelector(’#p3 .btn-next’);
+var btn = document.querySelector(’#p3 .btn-next’);
 btn.textContent = ‘Sending…’;
 btn.disabled = true;
 
-try {
-const response = await fetch(FORMSPREE_URL, {
+fetch(FORMSPREE_URL, {
 method: ‘POST’,
-headers: {
-‘Content-Type’: ‘application/json’,
-‘Accept’: ‘application/json’
-},
+headers: { ‘Content-Type’: ‘application/json’, ‘Accept’: ‘application/json’ },
 body: JSON.stringify({
-_subject: `New Meet & Greet Booking — ${pkg.name}`,
+_subject: ’New Meet & Greet Booking — ’ + pkg.name,
 package:  pkg.name,
 price:    pkg.price,
-name:     `${fn} ${ln}`,
+name:     fn + ’ ’ + ln,
 email:    em,
 phone:    ph,
 date:     dt,
 time:     tm,
 notes:    nt || ‘None’
 })
+})
+.then(function(res) {
+if (res.ok) {
+document.getElementById(‘formWrap’).style.display = ‘none’;
+document.getElementById(‘successScreen’).style.display = ‘block’;
+// Reset
+[‘f-fn’,‘f-ln’,‘f-em’,‘f-ph’,‘f-dt’,‘f-note’].forEach(function(id) {
+document.getElementById(id).value = ‘’;
 });
-
-```
-if (response.ok) {
-  // Show success screen
-  document.getElementById('formWrap').style.display = 'none';
-  document.getElementById('successScreen').style.display = 'block';
-
-  // Reset form fields
-  ['f-fn','f-ln','f-em','f-ph','f-dt','f-note'].forEach(id => {
-    document.getElementById(id).value = '';
-  });
-  document.getElementById('f-tm').value = '';
-  selectedPackage = null;
-  ['bronze','silver','gold'].forEach(p => {
-    document.getElementById('pc-' + p).classList.remove('sel');
-  });
+document.getElementById(‘f-tm’).value = ‘’;
+selectedPackage = null;
+[‘bronze’,‘silver’,‘gold’].forEach(function(p) {
+document.getElementById(‘pc-’ + p).classList.remove(‘sel’);
+});
 } else {
-  alert('Something went wrong. Please email darrylejonesmgteam@gmail.com directly.');
-}
-```
-
-} catch (err) {
-alert(‘Connection error. Please email darrylejonesmgteam@gmail.com directly.’);
-} finally {
+alert(‘Something went wrong. Please email darrylejonesmgteam@gmail.com directly.’);
 btn.textContent = ‘Confirm Booking ✓’;
 btn.disabled = false;
 }
+})
+.catch(function() {
+alert(‘Connection error. Please email darrylejonesmgteam@gmail.com directly.’);
+btn.textContent = ‘Confirm Booking ✓’;
+btn.disabled = false;
+});
 }
 
 /* ============================================
-CONTACT FORM — SUBMIT
+CONTACT FORM SUBMIT
 ============================================ */
-async function handleContactSubmit(e) {
+function handleContactSubmit(e) {
 e.preventDefault();
-const form = e.target;
-const btn = form.querySelector(’.submit-btn’);
+var form = e.target;
+var btn  = form.querySelector(’.submit-btn’);
 
 btn.textContent = ‘Sending…’;
 btn.disabled = true;
 
-try {
-const response = await fetch(FORMSPREE_URL, {
+fetch(FORMSPREE_URL, {
 method: ‘POST’,
 body: new FormData(form),
 headers: { ‘Accept’: ‘application/json’ }
-});
-
-```
-if (response.ok) {
-  btn.textContent = 'Message Sent ✓';
-  form.reset();
-  setTimeout(() => {
-    btn.textContent = 'Send Message';
-    btn.disabled = false;
-  }, 3000);
+})
+.then(function(res) {
+if (res.ok) {
+btn.textContent = ‘Message Sent ✓’;
+form.reset();
+setTimeout(function() {
+btn.textContent = ‘Send Message’;
+btn.disabled = false;
+}, 3000);
 } else {
-  btn.textContent = 'Try Again';
-  btn.disabled = false;
-}
-```
-
-} catch (err) {
 btn.textContent = ‘Try Again’;
 btn.disabled = false;
 }
+})
+.catch(function() {
+btn.textContent = ‘Try Again’;
+btn.disabled = false;
+});
 }
+
+/* ============================================
+CLOSE ON BACKGROUND CLICK + ESC KEY
+============================================ */
+document.getElementById(‘overlay’).addEventListener(‘click’, function(e) {
+if (e.target === this) closeModal();
+});
+
+document.addEventListener(‘keydown’, function(e) {
+if (e.key === ‘Escape’) closeModal();
+});
+
+/* ============================================
+CONTACT FORM LISTENER
+============================================ */
+document.getElementById(‘contactForm’).addEventListener(‘submit’, handleContactSubmit);
 
 /* ============================================
 SMOOTH SCROLL
 ============================================ */
-function initSmoothScroll() {
-document.querySelectorAll(‘a[href^=”#”]’).forEach(link => {
-link.addEventListener(‘click’, e => {
-const target = document.querySelector(link.getAttribute(‘href’));
+document.querySelectorAll(‘a[href^=”#”]’).forEach(function(link) {
+link.addEventListener(‘click’, function(e) {
+var target = document.querySelector(link.getAttribute(‘href’));
 if (target) {
 e.preventDefault();
 target.scrollIntoView({ behavior: ‘smooth’ });
 }
 });
-});
-}
-
-/* ============================================
-KEYBOARD: ESC CLOSES MODAL
-============================================ */
-function initKeyboard() {
-document.addEventListener(‘keydown’, e => {
-if (e.key === ‘Escape’) closeModal();
-});
-}
-
-/* ============================================
-INIT — runs when page loads
-============================================ */
-document.addEventListener(‘DOMContentLoaded’, () => {
-initSmoothScroll();
-initKeyboard();
-
-// Wire up contact form
-const contactForm = document.getElementById(‘contactForm’);
-if (contactForm) {
-contactForm.addEventListener(‘submit’, handleContactSubmit);
-}
-
-// Wire up overlay background click
-const overlay = document.getElementById(‘overlay’);
-if (overlay) {
-overlay.addEventListener(‘click’, handleOverlayClick);
-}
 });
